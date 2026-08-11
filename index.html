@@ -36,11 +36,9 @@
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
+                <!-- Logo Ansor (Ukuran: 48px / h-12) -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-ansor-green rounded-full flex items-center justify-center text-white font-bold text-xl border-2 border-ansor-yellow shadow">
-                        <i class="fa-solid me-0.5 fa-shield-halved text-ansor-yellow"></i>
-                    </div>
+                    <img src="gkl9.png" alt="Logo GP Ansor" class="h-12 w-auto object-contain drop-shadow">
                     <div>
                         <span class="block font-bold text-lg leading-tight text-ansor-green">GP ANSOR</span>
                         <span class="block text-xs font-semibold text-slate-500 tracking-wider">KOTA MALANG</span>
@@ -88,12 +86,18 @@
     </header>
 
     <!-- ================= 2. HERO SECTION ================= -->
-    <section id="beranda" class="relative bg-gradient-to-r from-ansor-darkgreen via-ansor-green to-emerald-800 text-white py-24 lg:py-32 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <section id="beranda" class="relative bg-ansor-darkgreen text-white py-24 lg:py-32 overflow-hidden">
+        
+        <!-- Background Pelantikan.jpg dengan Overlay Gelap -->
+        <div class="absolute inset-0 z-0">
+            <img src="pelantikan.jpg" alt="Pelantikan GP Ansor Malang" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-ansor-darkgreen/95 via-ansor-green/90 to-emerald-950/85"></div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-center md:text-left">
-                    <span class="inline-block bg-ansor-yellow/20 text-ansor-yellow border border-ansor-yellow/30 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                    <span class="inline-block bg-ansor-yellow/20 text-ansor-yellow border border-ansor-yellow/30 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-md">
                         Pimpinan Cabang Gerakan Pemuda Ansor Kota Malang
                     </span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
@@ -111,14 +115,11 @@
                         </a>
                     </div>
                 </div>
+                
+                <!-- Hero Image Logo Ansor (Ukuran: ~200px / w-52) -->
                 <div class="flex justify-center">
-                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/10 rounded-full p-4 backdrop-blur-sm border border-white/20 shadow-2xl flex items-center justify-center">
-                        <!-- Placeholder Image Logo Besar Ansor -->
-                        <div class="w-full h-full bg-ansor-green rounded-full border-4 border-ansor-yellow flex flex-col items-center justify-center text-center p-6 shadow-inner">
-                            <i class="fa-solid fa-building-columns text-6xl text-ansor-yellow mb-3"></i>
-                            <h2 class="text-xl font-bold">GP ANSOR</h2>
-                            <p class="text-xs text-slate-200">KOTA MALANG</p>
-                        </div>
+                    <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl flex items-center justify-center">
+                        <img src="gkl9.png" alt="Logo GP Ansor Kota Malang" class="w-52 h-auto object-contain drop-shadow-2xl hover:scale-105 transition duration-300">
                     </div>
                 </div>
             </div>
@@ -130,7 +131,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Diskusi Pemuda Ansor" class="rounded-2xl shadow-xl w-full h-96 object-cover">
+                    <!-- Menggunakan gambar pelantikan untuk profil juga jika diinginkan -->
+                    <img src="pelantikan.jpg" alt="Dokumentasi Pelantikan GP Ansor" class="rounded-2xl shadow-xl w-full h-96 object-cover">
                 </div>
                 <div class="space-y-5">
                     <div class="inline-block border-l-4 border-ansor-green pl-3">
@@ -175,12 +177,12 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Diklat Ansor" class="w-full h-48 object-cover">
+                    <img src="pelantikan.jpg" alt="Pelantikan Ansor" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-xs font-semibold bg-emerald-100 text-ansor-green px-3 py-1 rounded-full">Kaderisasi</span>
-                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> 24 Okt 2026</span>
-                        <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">PKD Ansor Sukun Gelar Pelatihan Kepemimpinan Pemuda</h3>
-                        <p class="text-slate-600 text-sm line-clamp-2">Puluhan pemuda ikuti pelatihan kepemimpinan dasar guna membentuk karakter kader yang militan.</p>
+                        <span class="text-xs font-semibold bg-emerald-100 text-ansor-green px-3 py-1 rounded-full">Pelantikan</span>
+                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> Masa Khidmat 2024-2028</span>
+                        <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">Pelantikan & Konsolidasi Kader PC GP Ansor Kota Malang</h3>
+                        <p class="text-slate-600 text-sm line-clamp-2">Pengurus PC GP Ansor Kota Malang resmi dilantik untuk mengawal visi kepemudaan dan keagamaan.</p>
                     </div>
                 </div>
                 <!-- Card 2 -->
@@ -188,7 +190,7 @@
                     <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Majelis Rijalul Ansor" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Keagamaan</span>
-                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> 18 Okt 2026</span>
+                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> Rutinan</span>
                         <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">Majelis Rijalul Ansor Kota Malang Rutinan Setiap Malam Jumat</h3>
                         <p class="text-slate-600 text-sm line-clamp-2">Penguatan spiritualitas kader melalui pembacaan Shalawat Diba' dan kajian kitab kuning.</p>
                     </div>
@@ -198,7 +200,7 @@
                     <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Banser Tanggap Bencana" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <span class="text-xs font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Sosial</span>
-                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> 10 Okt 2026</span>
+                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> Kesiapsiagaan</span>
                         <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">BAGANA Banser Kota Malang Siap Siaga Bencana Musim Hujan</h3>
                         <p class="text-slate-600 text-sm line-clamp-2">Apel kesiapsiagaan digelar untuk mengantisipasi potensi bencana alam di wilayah Kota Malang.</p>
                     </div>
@@ -238,7 +240,7 @@
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-3">Kaderisasi</h3>
-                    <p class="text-slate-600 group-hover:text-slate-100 text-sm">Membentuk kader militan, berakhlak mulia, dan setia mengabdi pada ulama serta bangsa melalui sistem pelatihan berjenjang</p>
+                    <p class="text-slate-600 group-hover:text-slate-100 text-sm">Membentuk kader militan, berakhlak mulia, dan setia mengabdi melalui sistem pelatihan berjenjang.</p>
                 </div>
                 <!-- Program 4 -->
                 <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:bg-ansor-green hover:text-white transition group shadow-sm">
@@ -306,7 +308,7 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=500&q=80" alt="Galeri 1" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
+                <img src="pelantikan.jpg" alt="Pelantikan Ansor Malang" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
                 <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80" alt="Galeri 2" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
                 <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="Galeri 3" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
                 <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Galeri 4" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
@@ -317,7 +319,7 @@
     <!-- ================= 8. KOLABORASI & KEMITRAAN ================= -->
     <section id="mitra" class="py-16 bg-slate-100 border-t border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-lg font-semibold text-slate-600 mb-8 uppercase tracking-widest">Sinergi & Kolaborasi Strategic</h3>
+            <h3 class="text-lg font-semibold text-slate-600 mb-8 uppercase tracking-widest">Sinergi & Kolaborasi Strategis</h3>
             <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-75">
                 <span class="font-extrabold text-xl text-slate-600">PCNU KOTA MALANG</span>
                 <span class="font-extrabold text-xl text-slate-600">PEMKOT MALANG</span>
@@ -332,12 +334,10 @@
     <footer class="bg-ansor-darkgreen text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 pb-12 border-b border-emerald-800">
-                <!-- Info Logo -->
+                <!-- Info Logo Footer (Ukuran: 40px / h-10) -->
                 <div class="space-y-4 md:col-span-1">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-ansor-green font-bold text-lg">
-                            <i class="fa-solid fa-shield-halved text-ansor-yellow"></i>
-                        </div>
+                        <img src="gkl9.png" alt="Logo GP Ansor" class="h-10 w-auto object-contain">
                         <span class="font-bold text-lg">GP ANSOR MALANG</span>
                     </div>
                     <p class="text-slate-300 text-sm">
@@ -387,17 +387,15 @@
 
     <!-- ================= 10. LOGIN MODAL ================= -->
     <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative animate-fade-in">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative">
             <!-- Close Button -->
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 focus:outline-none">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
 
-            <!-- Modal Header -->
+            <!-- Modal Header dengan Logo gkl9.png -->
             <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-ansor-green text-ansor-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-                    <i class="fa-solid fa-user-lock"></i>
-                </div>
+                <img src="gkl9.png" alt="Logo Ansor" class="h-12 w-auto mx-auto mb-3 object-contain">
                 <h3 class="text-2xl font-bold text-slate-800">Login Anggota</h3>
                 <p class="text-slate-500 text-sm mt-1">Masuk ke Sistem Informasi Ansor (SIA)</p>
             </div>
@@ -436,7 +434,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close Mobile Menu when link clicked
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -448,22 +445,20 @@
 
         function openModal() {
             loginModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Stop scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             loginModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
-        // Close Modal when clicking outside the box
         window.addEventListener('click', (e) => {
             if (e.target === loginModal) {
                 closeModal();
             }
         });
 
-        // Handle Form Submit Dummy
         function handleLogin(e) {
             e.preventDefault();
             alert('Login Berhasil! (Fitur Demo)');
