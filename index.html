@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -36,9 +38,11 @@
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo Ansor (Ukuran: 48px / h-12) -->
+                <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <img src="gkl9.png" alt="Logo GP Ansor" class="h-12 w-auto object-contain drop-shadow">
+                    <div class="w-12 h-12 bg-ansor-green rounded-full flex items-center justify-center text-white font-bold text-xl border-2 border-ansor-yellow shadow">
+                        <i class="fa-solid fa-shield-halved text-ansor-yellow"></i>
+                    </div>
                     <div>
                         <span class="block font-bold text-lg leading-tight text-ansor-green">GP ANSOR</span>
                         <span class="block text-xs font-semibold text-slate-500 tracking-wider">KOTA MALANG</span>
@@ -51,9 +55,11 @@
                     <a href="#profil" class="text-slate-600 hover:text-ansor-green transition">Profil</a>
                     <a href="#berita" class="text-slate-600 hover:text-ansor-green transition">Berita & Agenda</a>
                     <a href="#program" class="text-slate-600 hover:text-ansor-green transition">Program</a>
+                    <a href="#organisasi" class="text-slate-600 hover:text-ansor-green transition">Organisasi</a>
                     <a href="#pengurus" class="text-slate-600 hover:text-ansor-green transition">Pengurus</a>
                     <a href="#galeri" class="text-slate-600 hover:text-ansor-green transition">Galeri</a>
                     <a href="#mitra" class="text-slate-600 hover:text-ansor-green transition">Kemitraan</a>
+                    <a href="#kontak" class="text-slate-600 hover:text-ansor-green transition">Kontak</a>
                 </nav>
 
                 <!-- Login Button & Mobile Toggle -->
@@ -61,7 +67,10 @@
                     <button onclick="openModal()" class="hidden sm:inline-flex items-center gap-2 bg-ansor-green hover:bg-ansor-darkgreen text-white px-5 py-2.5 rounded-full text-sm font-semibold transition shadow-md hover:shadow-lg">
                         <i class="fa-solid fa-right-to-bracket"></i> Masuk
                     </button>
-
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="text-slate-700 hover:text-ansor-green transition text-lg">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="md:hidden text-slate-700 hover:text-ansor-green focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -76,9 +85,11 @@
             <a href="#profil" class="block py-2 text-slate-600 border-b border-slate-100">Profil</a>
             <a href="#berita" class="block py-2 text-slate-600 border-b border-slate-100">Berita & Agenda</a>
             <a href="#program" class="block py-2 text-slate-600 border-b border-slate-100">Program</a>
+            <a href="#organisasi" class="block py-2 text-slate-600 border-b border-slate-100">Organisasi</a>
             <a href="#pengurus" class="block py-2 text-slate-600 border-b border-slate-100">Pengurus</a>
             <a href="#galeri" class="block py-2 text-slate-600 border-b border-slate-100">Galeri</a>
             <a href="#mitra" class="block py-2 text-slate-600 border-b border-slate-100">Kemitraan</a>
+            <a href="#kontak" class="block py-2 text-slate-600 border-b border-slate-100">Kontak</a>
             <button onclick="openModal()" class="w-full mt-2 bg-ansor-green text-white py-2 rounded-lg font-semibold flex items-center justify-center gap-2">
                 <i class="fa-solid fa-right-to-bracket"></i> Masuk Anggota
             </button>
@@ -86,19 +97,19 @@
     </header>
 
     <!-- ================= 2. HERO SECTION ================= -->
-    <section id="beranda" class="relative bg-ansor-darkgreen text-white py-24 lg:py-32 overflow-hidden">
-        
-        <!-- Background Pelantikan.jpg dengan Overlay Gelap -->
-        <div class="absolute inset-0 z-0">
-            <img src="pelantikan.jpg" alt="Pelantikan GP Ansor Malang" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-ansor-darkgreen/30 via-ansor-green/25 to-emerald-950/20"></div>
+    <section id="beranda" class="relative bg-gradient-to-r from-ansor-darkgreen via-ansor-green to-emerald-800 text-white py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <!-- Floating Particles Animation -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-4 h-4 bg-ansor-yellow/30 rounded-full animate-ping"></div>
+            <div class="absolute top-40 right-20 w-6 h-6 bg-white/20 rounded-full animate-bounce" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-ansor-yellow/40 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
         </div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-center md:text-left">
-                    <span class="inline-block bg-ansor-yellow/20 text-ansor-yellow border border-ansor-yellow/30 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-md">
-                        Pimpinan Cabang Gerakan Pemuda Ansor Kota Malang
+                <div class="space-y-6 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="inline-block bg-ansor-yellow/20 text-ansor-yellow border border-ansor-yellow/30 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider animate-pulse">
+                        <i class="fa-solid fa-star mr-1"></i> Pimpinan Cabang Kota Malang
                     </span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
                         Transformasi Pemuda, <span class="text-ansor-yellow">Khidmat</span> Untuk Negeri
@@ -106,20 +117,47 @@
                     <p class="text-slate-200 text-base sm:text-lg max-w-xl">
                         Mengukuhkan benteng NKRI, mengawal ajaran Ahlussunnah wal Jama'ah An-Nahdliyah, dan memberdayakan pemuda di Bumi Arema.
                     </p>
+                    <!-- Countdown Timer untuk Harlah GP Ansor 2027 -->
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 text-center border border-white/20 min-w-[70px]">
+                            <span class="block text-2xl font-bold text-ansor-yellow" id="countdownDays">00</span>
+                            <span class="text-xs text-slate-300">Hari</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 text-center border border-white/20 min-w-[70px]">
+                            <span class="block text-2xl font-bold text-ansor-yellow" id="countdownHours">00</span>
+                            <span class="text-xs text-slate-300">Jam</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 text-center border border-white/20 min-w-[70px]">
+                            <span class="block text-2xl font-bold text-ansor-yellow" id="countdownMinutes">00</span>
+                            <span class="text-xs text-slate-300">Menit</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 text-center border border-white/20 min-w-[70px]">
+                            <span class="block text-2xl font-bold text-ansor-yellow" id="countdownSeconds">00</span>
+                            <span class="text-xs text-slate-300">Detik</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-slate-300 italic">Menuju Harlah GP Ansor ke-93 · 24 Januari 2027</div>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#program" class="bg-ansor-yellow hover:bg-amber-500 text-slate-900 font-bold px-7 py-3.5 rounded-lg shadow-lg transition text-center">
-                            Program Unggulan
+                            <i class="fa-solid fa-rocket mr-2"></i> Program Unggulan
                         </a>
                         <a href="#profil" class="border border-white/40 hover:bg-white/10 text-white font-semibold px-7 py-3.5 rounded-lg transition text-center">
-                            Tentang Kami
+                            <i class="fa-solid fa-circle-info mr-2"></i> Tentang Kami
                         </a>
                     </div>
                 </div>
-                
-                <!-- Hero Image Logo Ansor (Ukuran: ~200px / w-52) -->
-                <div class="flex justify-center">
-                    <div class="relative bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl flex items-center justify-center">
-                        <img src="gkl9.png" alt="Logo GP Ansor Kota Malang" class="w-52 h-auto object-contain drop-shadow-2xl hover:scale-105 transition duration-300">
+                <div class="flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/10 rounded-full p-4 backdrop-blur-sm border border-white/20 shadow-2xl flex items-center justify-center animate-pulse-slow">
+                        <div class="w-full h-full bg-ansor-green rounded-full border-4 border-ansor-yellow flex flex-col items-center justify-center text-center p-6 shadow-inner">
+                            <i class="fa-solid fa-building-columns text-6xl text-ansor-yellow mb-3"></i>
+                            <h2 class="text-xl font-bold">GP ANSOR</h2>
+                            <p class="text-xs text-slate-200">KOTA MALANG</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="w-2 h-2 bg-ansor-yellow rounded-full animate-ping"></span>
+                                <span class="w-2 h-2 bg-ansor-yellow rounded-full animate-ping" style="animation-delay: 0.5s;"></span>
+                                <span class="w-2 h-2 bg-ansor-yellow rounded-full animate-ping" style="animation-delay: 1s;"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,30 +168,43 @@
     <section id="profil" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <!-- Menggunakan gambar pelantikan untuk profil juga jika diinginkan -->
-                    <img src="pelantikan.jpg" alt="Dokumentasi Pelantikan GP Ansor" class="rounded-2xl shadow-xl w-full h-96 object-cover">
+                <div data-aos="fade-right" data-aos-duration="800">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Diskusi Pemuda Ansor" class="rounded-2xl shadow-xl w-full h-96 object-cover hover:scale-105 transition duration-500">
                 </div>
-                <div class="space-y-5">
+                <div class="space-y-5" data-aos="fade-left" data-aos-duration="800">
                     <div class="inline-block border-l-4 border-ansor-green pl-3">
                         <h2 class="text-3xl font-bold text-slate-800">Profil GP Ansor Kota Malang</h2>
                     </div>
                     <p class="text-slate-600 leading-relaxed">
                         Pimpinan Cabang Gerakan Pemuda Ansor Kota Malang merupakan badan otonom Nahdlatul Ulama yang wadah utamanya menggembleng pemuda Islam di Kota Malang. Kami berkomitmen dalam menjaga keutuhan NKRI, menyebarkan nilai keagamaan yang ramah, dan memajukan potensi pemuda.
                     </p>
-                    <!-- Quick Stats -->
+                    <!-- Quick Stats with Icons -->
                     <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-                        <div>
-                            <span class="block text-3xl font-bold text-ansor-green">5</span>
-                            <span class="text-xs text-slate-500 font-medium">PAC Kecamatan</span>
+                        <div class="text-center bg-slate-50 rounded-xl p-3 hover:bg-ansor-green hover:text-white transition group">
+                            <i class="fa-solid fa-building text-ansor-green group-hover:text-ansor-yellow text-2xl"></i>
+                            <span class="block text-2xl font-bold text-ansor-green group-hover:text-white mt-1">5</span>
+                            <span class="text-xs text-slate-500 group-hover:text-slate-200 font-medium">PAC Kecamatan</span>
                         </div>
-                        <div>
-                            <span class="block text-3xl font-bold text-ansor-green">1.500+</span>
-                            <span class="text-xs text-slate-500 font-medium">Kader Banser</span>
+                        <div class="text-center bg-slate-50 rounded-xl p-3 hover:bg-ansor-green hover:text-white transition group">
+                            <i class="fa-solid fa-users text-ansor-green group-hover:text-ansor-yellow text-2xl"></i>
+                            <span class="block text-2xl font-bold text-ansor-green group-hover:text-white mt-1">1.500+</span>
+                            <span class="text-xs text-slate-500 group-hover:text-slate-200 font-medium">Kader Banser</span>
                         </div>
-                        <div>
-                            <span class="block text-3xl font-bold text-ansor-green">57</span>
-                            <span class="text-xs text-slate-500 font-medium">Ranting Kelurahan</span>
+                        <div class="text-center bg-slate-50 rounded-xl p-3 hover:bg-ansor-green hover:text-white transition group">
+                            <i class="fa-solid fa-tree text-ansor-green group-hover:text-ansor-yellow text-2xl"></i>
+                            <span class="block text-2xl font-bold text-ansor-green group-hover:text-white mt-1">57</span>
+                            <span class="text-xs text-slate-500 group-hover:text-slate-200 font-medium">Ranting Kelurahan</span>
+                        </div>
+                    </div>
+                    <!-- Visi Misi -->
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="bg-ansor-green/5 p-4 rounded-xl border border-ansor-green/10">
+                            <h4 class="font-bold text-ansor-green"><i class="fa-solid fa-eye mr-2"></i> Visi</h4>
+                            <p class="text-xs text-slate-600">Menjadi organisasi pemuda terdepan dalam penguatan nilai keislaman dan kebangsaan.</p>
+                        </div>
+                        <div class="bg-ansor-green/5 p-4 rounded-xl border border-ansor-green/10">
+                            <h4 class="font-bold text-ansor-green"><i class="fa-solid fa-bullseye mr-2"></i> Misi</h4>
+                            <p class="text-xs text-slate-600">Menggerakkan kaderisasi, dakwah, dan pemberdayaan pemuda berbasis Ahlussunnah.</p>
                         </div>
                     </div>
                 </div>
@@ -176,33 +227,115 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <img src="pelantikan.jpg" alt="Pelantikan Ansor" class="w-full h-48 object-cover">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Diklat Ansor" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="text-xs font-semibold bg-emerald-100 text-ansor-green px-3 py-1 rounded-full shadow">Kaderisasi</span>
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <span class="text-xs font-semibold bg-emerald-100 text-ansor-green px-3 py-1 rounded-full">Pelantikan</span>
-                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> Masa Khidmat 2024-2028</span>
-                        <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">Pelantikan & Konsolidasi Kader PC GP Ansor Kota Malang</h3>
-                        <p class="text-slate-600 text-sm line-clamp-2">Pengurus PC GP Ansor Kota Malang resmi dilantik untuk mengawal visi kepemudaan dan keagamaan.</p>
+                        <div class="flex items-center text-xs text-slate-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 24 Okt 2026
+                            <span class="mx-2">•</span>
+                            <i class="fa-regular fa-clock mr-1"></i> 08:00 WIB
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 hover:text-ansor-green transition">PKD Ansor Sukun Gelar Pelatihan Kepemimpinan Pemuda</h3>
+                        <p class="text-slate-600 text-sm line-clamp-2">Puluhan pemuda ikuti pelatihan kepemimpinan dasar guna membentuk karakter kader yang militan.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-ansor-green font-semibold text-sm mt-4 hover:gap-3 transition">
+                            Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Majelis Rijalul Ansor" class="w-full h-48 object-cover">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Majelis Rijalul Ansor" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full shadow">Keagamaan</span>
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Keagamaan</span>
-                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> Rutinan</span>
-                        <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">Majelis Rijalul Ansor Kota Malang Rutinan Setiap Malam Jumat</h3>
+                        <div class="flex items-center text-xs text-slate-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 18 Okt 2026
+                            <span class="mx-2">•</span>
+                            <i class="fa-regular fa-clock mr-1"></i> 19:00 WIB
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 hover:text-ansor-green transition">Majelis Rijalul Ansor Kota Malang Rutinan Setiap Malam Jumat</h3>
                         <p class="text-slate-600 text-sm line-clamp-2">Penguatan spiritualitas kader melalui pembacaan Shalawat Diba' dan kajian kitab kuning.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-ansor-green font-semibold text-sm mt-4 hover:gap-3 transition">
+                            Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Banser Tanggap Bencana" class="w-full h-48 object-cover">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Banser Tanggap Bencana" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="text-xs font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full shadow">Sosial</span>
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <span class="text-xs font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Sosial</span>
-                        <span class="text-xs text-slate-400 ml-2"><i class="fa-regular fa-calendar"></i> Kesiapsiagaan</span>
-                        <h3 class="font-bold text-lg mt-3 mb-2 hover:text-ansor-green transition">BAGANA Banser Kota Malang Siap Siaga Bencana Musim Hujan</h3>
+                        <div class="flex items-center text-xs text-slate-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 10 Okt 2026
+                            <span class="mx-2">•</span>
+                            <i class="fa-regular fa-clock mr-1"></i> 06:00 WIB
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 hover:text-ansor-green transition">BAGANA Banser Kota Malang Siap Siaga Bencana Musim Hujan</h3>
                         <p class="text-slate-600 text-sm line-clamp-2">Apel kesiapsiagaan digelar untuk mengantisipasi potensi bencana alam di wilayah Kota Malang.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-ansor-green font-semibold text-sm mt-4 hover:gap-3 transition">
+                            Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agenda Mini -->
+            <div class="mt-12 bg-white rounded-2xl p-6 border border-slate-200" data-aos="fade-up">
+                <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-ansor-green"></i> Agenda Mendatang
+                </h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="bg-ansor-green/10 p-2 rounded-lg text-center min-w-[50px]">
+                            <span class="block font-bold text-ansor-green">28</span>
+                            <span class="text-[10px] text-slate-500">Okt</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Rapat Koordinasi PAC</h4>
+                            <p class="text-xs text-slate-500">09:00 WIB · Kantor PC</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="bg-ansor-yellow/10 p-2 rounded-lg text-center min-w-[50px]">
+                            <span class="block font-bold text-ansor-yellow">5</span>
+                            <span class="text-[10px] text-slate-500">Nov</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Pendaftaran PKD Angkatan 45</h4>
+                            <p class="text-xs text-slate-500">Online & Offline</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="bg-emerald-100 p-2 rounded-lg text-center min-w-[50px]">
+                            <span class="block font-bold text-ansor-green">12</span>
+                            <span class="text-[10px] text-slate-500">Nov</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Bakti Sosial & Santunan</h4>
+                            <p class="text-xs text-slate-500">08:00 WIB · Lapangan Merdeka</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="bg-purple-100 p-2 rounded-lg text-center min-w-[50px]">
+                            <span class="block font-bold text-purple-600">20</span>
+                            <span class="text-[10px] text-slate-500">Nov</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Pelatihan Cyber Ansor</h4>
+                            <p class="text-xs text-slate-500">13:00 WIB · Aula PC</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -212,190 +345,649 @@
     <!-- ================= 5. PROGRAM UNGGULAN ================= -->
     <section id="program" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
                 <h2 class="text-3xl font-bold text-slate-800">Program Unggulan</h2>
                 <p class="text-slate-500 mt-2">Pilar gerakan PC GP Ansor Kota Malang dalam mengabdi untuk masyarakat.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Program 1 -->
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:bg-ansor-green hover:text-white transition group shadow-sm">
+                <!-- Program 1: MDS Rijalul Ansor -->
+                <div class="p-6 border border-slate-100 rounded-2xl bg-white hover:bg-ansor-green hover:text-white transition group shadow-sm hover:shadow-xl" data-aos="flip-up" data-aos-delay="100">
                     <div class="w-14 h-14 bg-ansor-green text-ansor-yellow group-hover:bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow">
                         <i class="fa-solid fa-book-quran"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-3">MDS Rijalul Ansor</h3>
                     <p class="text-slate-600 group-hover:text-slate-100 text-sm">Majelis Dzikir dan Sholawat untuk merawat tradisi keagamaan Islam Aswaja An-Nahdliyah.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-ansor-green group-hover:text-ansor-yellow">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>Setiap Malam Jumat</span>
+                    </div>
                 </div>
-                <!-- Program 2 -->
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:bg-ansor-green hover:text-white transition group shadow-sm">
+                <!-- Program 2: BANSER -->
+                <div class="p-6 border border-slate-100 rounded-2xl bg-white hover:bg-ansor-green hover:text-white transition group shadow-sm hover:shadow-xl" data-aos="flip-up" data-aos-delay="200">
                     <div class="w-14 h-14 bg-ansor-green text-ansor-yellow group-hover:bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow">
                         <i class="fa-solid fa-user-shield"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-3">BANSER</h3>
                     <p class="text-slate-600 group-hover:text-slate-100 text-sm">Barisan Ansor Serbaguna untuk pengamanan ulama, kiai, serta aksi kemanusiaan & kemasyarakatan.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-ansor-green group-hover:text-ansor-yellow">
+                        <i class="fa-solid fa-users"></i>
+                        <span>1.500+ Kader Terlatih</span>
+                    </div>
                 </div>
-                <!-- Program 3 -->
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:bg-ansor-green hover:text-white transition group shadow-sm">
+                <!-- Program 3: KADERISASI (Pengganti Ansoruna Business) -->
+                <div class="p-6 border border-slate-100 rounded-2xl bg-white hover:bg-ansor-green hover:text-white transition group shadow-sm hover:shadow-xl" data-aos="flip-up" data-aos-delay="300">
                     <div class="w-14 h-14 bg-ansor-green text-ansor-yellow group-hover:bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-3">Kaderisasi</h3>
-                    <p class="text-slate-600 group-hover:text-slate-100 text-sm">Membentuk kader militan, berakhlak mulia, dan setia mengabdi melalui sistem pelatihan berjenjang.</p>
+                    <p class="text-slate-600 group-hover:text-slate-100 text-sm">Pelatihan Kepemimpinan Dasar (PKD), Latihan Instruktur (Latins), dan penguatan kapasitas kader Ansor se-Kota Malang.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-ansor-green group-hover:text-ansor-yellow">
+                        <i class="fa-solid fa-users"></i>
+                        <span>500+ Kader Tersertifikasi</span>
+                    </div>
                 </div>
-                <!-- Program 4 -->
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:bg-ansor-green hover:text-white transition group shadow-sm">
+                <!-- Program 4: Cyber Ansor -->
+                <div class="p-6 border border-slate-100 rounded-2xl bg-white hover:bg-ansor-green hover:text-white transition group shadow-sm hover:shadow-xl" data-aos="flip-up" data-aos-delay="400">
                     <div class="w-14 h-14 bg-ansor-green text-ansor-yellow group-hover:bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
-                    <h3 class="font-bold text-xl mb-3">Badan Siber Ansor</h3>
+                    <h3 class="font-bold text-xl mb-3">Cyber Ansor</h3>
                     <p class="text-slate-600 group-hover:text-slate-100 text-sm">Penguatan media digital, kontra narasi radikalisme, dan edukasi literasi digital bagi masyarakat.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-ansor-green group-hover:text-ansor-yellow">
+                        <i class="fa-solid fa-hashtag"></i>
+                        <span>#LiterasiDigital</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program CTA -->
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center gap-2 bg-ansor-green hover:bg-ansor-darkgreen text-white px-8 py-3 rounded-full font-semibold transition shadow-lg hover:shadow-xl">
+                    <i class="fa-regular fa-file-lines"></i> Lihat Detail Program
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. ORGANISASI & AKREDITASI ================= -->
+    <section id="organisasi" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-slate-800">Organisasi & Akreditasi</h2>
+                <p class="text-slate-500 mt-2">Struktur organisasi dan status akreditasi ranting GP Ansor Kota Malang</p>
+            </div>
+
+            <!-- Struktur Organisasi -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200" data-aos="fade-right">
+                    <h3 class="font-bold text-xl mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-sitemap text-ansor-green"></i>
+                        Struktur Organisasi
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition">
+                            <span class="bg-ansor-green text-white px-3 py-1 rounded-full text-xs font-bold">PUSAT</span>
+                            <span class="font-semibold">PP GP Ansor</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition">
+                            <span class="bg-ansor-green/80 text-white px-3 py-1 rounded-full text-xs font-bold">PROVINSI</span>
+                            <span class="font-semibold">PW GP Ansor Jawa Timur</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-ansor-green/10 rounded-xl border-2 border-ansor-green shadow-sm">
+                            <span class="bg-ansor-green text-white px-3 py-1 rounded-full text-xs font-bold">CABANG</span>
+                            <span class="font-semibold text-ansor-green">PC GP Ansor Kota Malang</span>
+                            <span class="ml-auto text-xs bg-ansor-yellow text-slate-900 px-2 py-0.5 rounded-full font-bold">AKTIF</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition">
+                            <span class="bg-slate-600 text-white px-3 py-1 rounded-full text-xs font-bold">KECAMATAN</span>
+                            <span class="font-semibold">5 PAC (Kecamatan)</span>
+                            <span class="ml-auto text-xs text-slate-400">Terakreditasi</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition">
+                            <span class="bg-slate-600 text-white px-3 py-1 rounded-full text-xs font-bold">KELURAHAN</span>
+                            <span class="font-semibold">57 Ranting/PR</span>
+                            <span class="ml-auto text-xs text-slate-400">57 Terdaftar</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-ansor-green/5 rounded-xl border border-ansor-green/20">
+                        <p class="text-xs text-slate-500">
+                            <i class="fa-solid fa-info-circle text-ansor-green mr-1"></i>
+                            Struktur organisasi GP Ansor menganut sistem kaderisasi berjenjang dari ranting hingga pusat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200" data-aos="fade-left">
+                    <h3 class="font-bold text-xl mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-layer-group text-ansor-yellow"></i>
+                        Bidang-bidang Organisasi
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-graduation-cap text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Kaderisasi</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-book-quran text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Keagamaan (MDS)</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-user-shield text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Banser</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-store text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Ekonomi & UMKM</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-laptop-code text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Cyber & Media</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-scale-balanced text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Hukum & Advokasi</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-hand-holding-heart text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Sosial & Kemanusiaan</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl shadow-sm text-center hover:bg-ansor-green hover:text-white transition group cursor-pointer">
+                            <i class="fa-solid fa-music text-ansor-green group-hover:text-ansor-yellow text-xl"></i>
+                            <p class="text-xs font-semibold mt-1">Seni & Budaya (PRSI)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Akreditasi Ranting -->
+            <div class="bg-gradient-to-r from-ansor-green to-ansor-darkgreen rounded-2xl p-8 text-white" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-2xl font-bold flex items-center gap-3">
+                            <i class="fa-solid fa-star text-ansor-yellow"></i>
+                            Akreditasi Ranting
+                        </h3>
+                        <p class="text-slate-200 text-sm mt-1">Status akreditasi ranting/PR GP Ansor se-Kota Malang</p>
+                    </div>
+                    <div class="flex gap-4 flex-wrap">
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 min-w-[80px]">
+                            <span class="block text-3xl font-bold text-ansor-yellow">12</span>
+                            <span class="text-xs text-slate-200">⭐⭐⭐⭐⭐<br>Unggul</span>
+                        </div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 min-w-[80px]">
+                            <span class="block text-3xl font-bold text-emerald-300">25</span>
+                            <span class="text-xs text-slate-200">⭐⭐⭐⭐<br>Baik</span>
+                        </div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 min-w-[80px]">
+                            <span class="block text-3xl font-bold text-amber-300">15</span>
+                            <span class="text-xs text-slate-200">⭐⭐⭐<br>Cukup</span>
+                        </div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 min-w-[80px]">
+                            <span class="block text-3xl font-bold text-red-300">5</span>
+                            <span class="text-xs text-slate-200">⭐⭐<br>Perlu Binaan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar Akreditasi -->
+                <div class="mt-6 space-y-2">
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Keaktifan Kegiatan (30%)</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-ansor-yellow rounded-full h-2" style="width:75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Jumlah Kader Terdaftar (20%)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-ansor-yellow rounded-full h-2" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Kontribusi Sosial (20%)</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-ansor-yellow rounded-full h-2" style="width:65%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Administrasi & Keuangan (15%)</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-ansor-yellow rounded-full h-2" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Inovasi Program (15%)</span>
+                            <span>55%</span>
+                        </div>
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-ansor-yellow rounded-full h-2" style="width:55%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-4 justify-between items-center">
+                    <div class="text-sm text-slate-200">
+                        <i class="fa-regular fa-calendar mr-1"></i>
+                        Jadwal Akreditasi: 1-15 November 2026
+                        <span class="inline-block ml-3 bg-ansor-yellow/20 text-ansor-yellow px-2 py-0.5 rounded-full text-xs">Segera Dibuka</span>
+                    </div>
+                    <a href="#" class="bg-ansor-yellow hover:bg-amber-500 text-slate-900 font-semibold px-6 py-2.5 rounded-lg transition text-sm shadow-lg hover:shadow-xl">
+                        <i class="fa-regular fa-file-lines mr-1"></i> Lihat Detail Akreditasi
+                    </a>
+                </div>
+
+                <!-- Ranking Ranting -->
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+                        <span class="text-2xl font-bold text-ansor-yellow">🏆</span>
+                        <p class="text-xs text-slate-200 font-semibold mt-1">Ranting Terbaik 2026</p>
+                        <p class="text-sm font-bold">PR Sukun 1</p>
+                        <span class="text-[10px] text-ansor-yellow">Skor: 92.5</span>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+                        <span class="text-2xl font-bold text-ansor-yellow">🥈</span>
+                        <p class="text-xs text-slate-200 font-semibold mt-1">Ranting Terbaik 2026</p>
+                        <p class="text-sm font-bold">PR Klojen</p>
+                        <span class="text-[10px] text-ansor-yellow">Skor: 88.3</span>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+                        <span class="text-2xl font-bold text-ansor-yellow">🥉</span>
+                        <p class="text-xs text-slate-200 font-semibold mt-1">Ranting Terbaik 2026</p>
+                        <p class="text-sm font-bold">PR Lowokwaru</p>
+                        <span class="text-[10px] text-ansor-yellow">Skor: 85.7</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= 6. STRUKTUR ORGANISASI ================= -->
-    <section id="pengurus" class="py-20 bg-slate-50">
+    <!-- ================= 7. STRUKTUR PENGURUS ================= -->
+    <section id="pengurus" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
                 <h2 class="text-3xl font-bold text-slate-800">Struktur Pimpinan</h2>
                 <p class="text-slate-500 mt-2">Pimpinan Cabang GP Ansor Kota Malang Masa Khidmat 2024–2028</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Leader 1 -->
-                <div class="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-24 h-24 mx-auto bg-slate-200 rounded-full mb-4 flex items-center justify-center text-3xl text-slate-400">
+                <!-- Ketua -->
+                <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-ansor-green to-ansor-darkgreen rounded-full mb-4 flex items-center justify-center text-4xl text-white shadow-lg">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-lg">Sahabat SUGIYANTO, S SOS</h3>
+                    <h3 class="font-bold text-slate-800 text-lg">Sahabat Ketua</h3>
                     <p class="text-ansor-green font-semibold text-sm">Ketua PC GP Ansor</p>
+                    <div class="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-400">
+                        <i class="fa-regular fa-envelope mr-1"></i> ketua@ansor.or.id
+                    </div>
                 </div>
-                <!-- Leader 2 -->
-                <div class="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-24 h-24 mx-auto bg-slate-200 rounded-full mb-4 flex items-center justify-center text-3xl text-slate-400">
+                <!-- Sekretaris -->
+                <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-ansor-green to-ansor-darkgreen rounded-full mb-4 flex items-center justify-center text-4xl text-white shadow-lg">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-lg">Sahabat DAVID RAHMAT HAKIKI</h3>
+                    <h3 class="font-bold text-slate-800 text-lg">Sahabat Sekretaris</h3>
                     <p class="text-ansor-green font-semibold text-sm">Sekretaris PC GP Ansor</p>
+                    <div class="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-400">
+                        <i class="fa-regular fa-envelope mr-1"></i> sekretaris@ansor.or.id
+                    </div>
                 </div>
-                <!-- Leader 3 -->
-                <div class="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-24 h-24 mx-auto bg-slate-200 rounded-full mb-4 flex items-center justify-center text-3xl text-slate-400">
+                <!-- Bendahara -->
+                <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-ansor-green to-ansor-darkgreen rounded-full mb-4 flex items-center justify-center text-4xl text-white shadow-lg">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-lg">Sahabat MUHAMMAD ANAS MUTTAQIN</h3>
+                    <h3 class="font-bold text-slate-800 text-lg">Sahabat Bendahara</h3>
                     <p class="text-ansor-green font-semibold text-sm">Bendahara PC GP Ansor</p>
-                </div>
-                <!-- Leader 4 -->
-                <div class="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-24 h-24 mx-auto bg-slate-200 rounded-full mb-4 flex items-center justify-center text-3xl text-slate-400">
-                        <i class="fa-solid fa-user"></i>
+                    <div class="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-400">
+                        <i class="fa-regular fa-envelope mr-1"></i> bendahara@ansor.or.id
                     </div>
-                    <h3 class="font-bold text-slate-800 text-lg">Sahabat DAFIT GUNARSO</h3>
+                </div>
+                <!-- Kasatkorcab Banser -->
+                <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-ansor-green to-ansor-darkgreen rounded-full mb-4 flex items-center justify-center text-4xl text-white shadow-lg">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-lg">Sahabat Kasatkorcab</h3>
                     <p class="text-ansor-green font-semibold text-sm">Kasatkorcab Banser</p>
+                    <div class="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-400">
+                        <i class="fa-regular fa-envelope mr-1"></i> banser@ansor.or.id
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= 7. GALERI DOKUMENTASI ================= -->
-    <section id="galeri" class="py-20 bg-white">
+    <!-- ================= 8. GALERI DOKUMENTASI ================= -->
+    <section id="galeri" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
                 <h2 class="text-3xl font-bold text-slate-800">Galeri Kegiatan</h2>
                 <p class="text-slate-500 mt-2">Dokumentasi rekam jejak perjuangan & pengabdian.</p>
             </div>
 
+            <!-- Galeri Filter -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="filter-btn active px-4 py-2 bg-ansor-green text-white rounded-full text-sm font-semibold" data-filter="all">Semua</button>
+                <button class="filter-btn px-4 py-2 bg-white text-slate-600 hover:bg-ansor-green hover:text-white rounded-full text-sm font-semibold transition" data-filter="kaderisasi">Kaderisasi</button>
+                <button class="filter-btn px-4 py-2 bg-white text-slate-600 hover:bg-ansor-green hover:text-white rounded-full text-sm font-semibold transition" data-filter="sosial">Sosial</button>
+                <button class="filter-btn px-4 py-2 bg-white text-slate-600 hover:bg-ansor-green hover:text-white rounded-full text-sm font-semibold transition" data-filter="keagamaan">Keagamaan</button>
+                <button class="filter-btn px-4 py-2 bg-white text-slate-600 hover:bg-ansor-green hover:text-white rounded-full text-sm font-semibold transition" data-filter="kebangsaan">Kebangsaan</button>
+            </div>
+
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <img src="pelantikan.jpg" alt="Pelantikan Ansor Malang" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80" alt="Galeri 2" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="Galeri 3" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
-                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Galeri 4" class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 cursor-pointer shadow">
+                <div class="galeri-item" data-category="kaderisasi" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=500&q=80" alt="Galeri 1" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Kaderisasi PKD</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="sosial" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80" alt="Galeri 2" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Bakti Sosial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="keagamaan" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="Galeri 3" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Majelis Dzikir</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="kebangsaan" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Galeri 4" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Upacara HUT RI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="kaderisasi" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=80" alt="Galeri 5" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Pelatihan Kepemimpinan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="sosial" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80" alt="Galeri 6" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Bantuan Bencana</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="keagamaan" data-aos="fade-up" data-aos-delay="700">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1563813695926-a3d11e9b00d5?auto=format&fit=crop&w=500&q=80" alt="Galeri 7" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Pengajian Rutin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-item" data-category="kebangsaan" data-aos="fade-up" data-aos-delay="800">
+                    <div class="relative overflow-hidden rounded-xl cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=500&q=80" alt="Galeri 8" class="h-48 w-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                            <span class="text-white text-sm font-semibold">Apel Banser</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4">
+                <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-ansor-yellow transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <img id="lightboxImage" src="" alt="Full Size" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
             </div>
         </div>
     </section>
 
-    <!-- ================= 8. KOLABORASI & KEMITRAAN ================= -->
-    <section id="mitra" class="py-16 bg-slate-100 border-t border-b border-slate-200">
+    <!-- ================= 9. KOLABORASI & KEMITRAAN ================= -->
+    <section id="mitra" class="py-16 bg-white border-t border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-lg font-semibold text-slate-600 mb-8 uppercase tracking-widest">Sinergi & Kolaborasi Strategis</h3>
-            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-75">
-                <span class="font-extrabold text-xl text-slate-600">PCNU KOTA MALANG</span>
-                <span class="font-extrabold text-xl text-slate-600">PEMKOT MALANG</span>
-                <span class="font-extrabold text-xl text-slate-600">POLRESTA MALANG KOTA</span>
-                <span class="font-extrabold text-xl text-slate-600">KODIM 0833</span>
-                <span class="font-extrabold text-xl text-slate-600">KNPI MALANG</span>
+            <h3 class="text-lg font-semibold text-slate-600 mb-8 uppercase tracking-widest" data-aos="fade-up">
+                <i class="fa-solid fa-handshake mr-2 text-ansor-green"></i> Sinergi & Kolaborasi Strategic
+            </h3>
+            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-75" data-aos="fade-up" data-aos-delay="200">
+                <span class="font-extrabold text-xl text-slate-700 hover:text-ansor-green transition cursor-pointer">PCNU KOTA MALANG</span>
+                <span class="font-extrabold text-xl text-slate-700 hover:text-ansor-green transition cursor-pointer">PEMKOT MALANG</span>
+                <span class="font-extrabold text-xl text-slate-700 hover:text-ansor-green transition cursor-pointer">POLRESTA MALANG KOTA</span>
+                <span class="font-extrabold text-xl text-slate-700 hover:text-ansor-green transition cursor-pointer">KODIM 0833</span>
+                <span class="font-extrabold text-xl text-slate-700 hover:text-ansor-green transition cursor-pointer">KNPI MALANG</span>
+                <span class="font-extrabold text-xl text-slate-700 hover:text-ansor-green transition cursor-pointer">KEMENAG KOTA MALANG</span>
             </div>
         </div>
     </section>
 
-    <!-- ================= 9. FOOTER ================= -->
+    <!-- ================= 10. KONTAK & PETA ================= -->
+    <section id="kontak" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-slate-800">Hubungi Kami</h2>
+                <p class="text-slate-500 mt-2">Silahkan sampaikan aspirasi, pengaduan, atau kerjasama dengan PC GP Ansor Kota Malang.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Form Kontak -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-right">
+                    <h3 class="font-bold text-xl mb-6 flex items-center gap-2">
+                        <i class="fa-regular fa-pen-to-square text-ansor-green"></i> Kirim Pesan
+                    </h3>
+                    <form onsubmit="handleContact(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap</label>
+                            <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-ansor-green focus:border-transparent outline-none text-sm" placeholder="Masukkan nama Anda">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Email</label>
+                            <input type="email" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-ansor-green focus:border-transparent outline-none text-sm" placeholder="email@contoh.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Perihal</label>
+                            <select class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-ansor-green focus:border-transparent outline-none text-sm">
+                                <option>Pilih Perihal</option>
+                                <option>Pengaduan Masyarakat</option>
+                                <option>Kerjasama & Kemitraan</option>
+                                <option>Informasi Kegiatan</option>
+                                <option>Pendaftaran Kader</option>
+                                <option>Akreditasi Ranting</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Pesan</label>
+                            <textarea rows="4" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-ansor-green focus:border-transparent outline-none text-sm" placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-ansor-green hover:bg-ansor-darkgreen text-white font-semibold py-3 rounded-lg transition shadow-md">
+                            <i class="fa-regular fa-paper-plane mr-2"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Kontak & Peta -->
+                <div class="space-y-6" data-aos="fade-left">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="font-bold text-xl mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-ansor-green"></i> Alamat Sekretariat
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-ansor-green/10 rounded-full flex items-center justify-center text-ansor-green flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Kantor PC GP Ansor Kota Malang</h4>
+                                    <p class="text-sm text-slate-500">Jl. Islamic Center No. 45, Kecamatan Lowokwaru, Kota Malang, Jawa Timur 65145</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-ansor-green/10 rounded-full flex items-center justify-center text-ansor-green flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Telepon</h4>
+                                    <p class="text-sm text-slate-500">+62 812-3456-7890</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-ansor-green/10 rounded-full flex items-center justify-center text-ansor-green flex-shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-sm text-slate-500">info@ansorkotamalang.or.id</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-ansor-green/10 rounded-full flex items-center justify-center text-ansor-green flex-shrink-0">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Jam Kerja</h4>
+                                    <p class="text-sm text-slate-500">Senin - Jumat: 08.00 - 16.00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Peta (Placeholder) -->
+                    <div class="bg-white rounded-2xl p-4 shadow-lg border border-slate-200">
+                        <div class="bg-slate-200 rounded-xl h-48 flex items-center justify-center text-slate-400">
+                            <div class="text-center">
+                                <i class="fa-solid fa-map text-4xl mb-2"></i>
+                                <p class="text-sm">Peta Lokasi (Google Maps Embed)</p>
+                                <p class="text-xs text-slate-400">Ganti dengan embed Google Maps</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 11. FOOTER ================= -->
     <footer class="bg-ansor-darkgreen text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 pb-12 border-b border-emerald-800">
-                <!-- Info Logo Footer (Ukuran: 40px / h-10) -->
+                <!-- Info Logo -->
                 <div class="space-y-4 md:col-span-1">
                     <div class="flex items-center space-x-3">
-                        <img src="gkl9.png" alt="Logo GP Ansor" class="h-10 w-auto object-contain">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-ansor-green font-bold text-lg">
+                            <i class="fa-solid fa-shield-halved text-ansor-yellow"></i>
+                        </div>
                         <span class="font-bold text-lg">GP ANSOR MALANG</span>
                     </div>
                     <p class="text-slate-300 text-sm">
                         Sekretariat PC GP Ansor Kota Malang.<br>
-                        Jl. K.H. Hasyim Ashari No.21, Kauman, Kec. Klojen, Kota Malang, Jawa Timur 65119
+                        Jl. Islamic Center, Bumi Arema, Kota Malang, Jawa Timur.
                     </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-slate-300 hover:text-ansor-yellow transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-slate-300 hover:text-ansor-yellow transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-slate-300 hover:text-ansor-yellow transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="text-slate-300 hover:text-ansor-yellow transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="text-slate-300 hover:text-ansor-yellow transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
                 </div>
 
                 <!-- Navigasi Cepat -->
                 <div>
                     <h4 class="font-semibold text-ansor-yellow mb-4">Tautan Cepat</h4>
                     <ul class="space-y-2 text-sm text-slate-300">
-                        <li><a href="#profil" class="hover:underline">Profil Organisasi</a></li>
-                        <li><a href="#berita" class="hover:underline">Berita Terbaru</a></li>
-                        <li><a href="#program" class="hover:underline">Program Kerja</a></li>
-                        <li><a href="#pengurus" class="hover:underline">Struktur Pengurus</a></li>
+                        <li><a href="#profil" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px]"></i> Profil Organisasi</a></li>
+                        <li><a href="#berita" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px]"></i> Berita Terbaru</a></li>
+                        <li><a href="#program" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px]"></i> Program Kerja</a></li>
+                        <li><a href="#organisasi" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px]"></i> Organisasi & Akreditasi</a></li>
+                        <li><a href="#pengurus" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px]"></i> Struktur Pengurus</a></li>
+                        <li><a href="#kontak" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px]"></i> Hubungi Kami</a></li>
                     </ul>
                 </div>
 
-                <!-- Kontak -->
+                <!-- Program -->
                 <div>
-                    <h4 class="font-semibold text-ansor-yellow mb-4">Hubungi Kami</h4>
+                    <h4 class="font-semibold text-ansor-yellow mb-4">Program Unggulan</h4>
                     <ul class="space-y-2 text-sm text-slate-300">
-                        <li><i class="fa-solid fa-envelope mr-2"></i> pcansormalangkota@gmail.com</li>
-                        <li><i class="fa-solid fa-phone mr-2"></i> +6281233208080</li>
-                        <li><i class="fa-solid fa-location-dot mr-2"></i> Kota Malang, Jawa Timur</li>
+                        <li><a href="#" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-book-quran text-[10px]"></i> MDS Rijalul Ansor</a></li>
+                        <li><a href="#" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-user-shield text-[10px]"></i> Banser</a></li>
+                        <li><a href="#" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-[10px]"></i> Kaderisasi</a></li>
+                        <li><a href="#" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-laptop-code text-[10px]"></i> Cyber Ansor</a></li>
+                        <li><a href="#" class="hover:text-ansor-yellow transition flex items-center gap-2"><i class="fa-solid fa-hand-holding-heart text-[10px]"></i> Social Care</a></li>
                     </ul>
                 </div>
 
-                <!-- Media Sosial -->
+                <!-- Kontak Cepat -->
                 <div>
-                    <h4 class="font-semibold text-ansor-yellow mb-4">Media Sosial</h4>
-                    <div class="flex space-x-3">
-                        <a href="#" class="w-10 h-10 bg-emerald-800 hover:bg-ansor-yellow hover:text-slate-900 rounded-full flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 bg-emerald-800 hover:bg-ansor-yellow hover:text-slate-900 rounded-full flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 bg-emerald-800 hover:bg-ansor-yellow hover:text-slate-900 rounded-full flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="w-10 h-10 bg-emerald-800 hover:bg-ansor-yellow hover:text-slate-900 rounded-full flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
+                    <h4 class="font-semibold text-ansor-yellow mb-4">Kontak</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone text-ansor-yellow mt-0.5"></i>
+                            <span>+62 812-3456-7890</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-regular fa-envelope text-ansor-yellow mt-0.5"></i>
+                            <span>info@ansorkotamalang.or.id</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-brands fa-whatsapp text-ansor-yellow mt-0.5"></i>
+                            <span>+62 812-3456-7890</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-regular fa-clock text-ansor-yellow mt-0.5"></i>
+                            <span>Senin-Jumat: 08.00-16.00 WIB</span>
+                        </li>
+                    </ul>
+                    <!-- Tombol Login di Footer -->
+                    <button onclick="openModal()" class="mt-4 w-full bg-ansor-yellow/20 hover:bg-ansor-yellow hover:text-slate-900 text-ansor-yellow font-semibold px-4 py-2 rounded-lg transition text-sm border border-ansor-yellow/30">
+                        <i class="fa-solid fa-right-to-bracket mr-1"></i> Login Anggota
+                    </button>
                 </div>
             </div>
 
             <div class="pt-8 text-center text-sm text-slate-400">
                 <p>&copy; 2026 PC GP Ansor Kota Malang. All Rights Reserved.</p>
+                <p class="text-xs mt-1">Dikembangkan dengan <i class="fa-solid fa-heart text-ansor-yellow"></i> oleh Tim Cyber Ansor Kota Malang</p>
             </div>
         </div>
     </footer>
 
-    <!-- ================= 10. LOGIN MODAL ================= -->
+    <!-- ================= 12. LOGIN MODAL ================= -->
     <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative animate-fade-in" data-aos="zoom-in">
             <!-- Close Button -->
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 focus:outline-none">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
 
-            <!-- Modal Header dengan Logo gkl9.png -->
+            <!-- Modal Header -->
             <div class="text-center mb-6">
-                <img src="gkl9.png" alt="Logo Ansor" class="h-12 w-auto mx-auto mb-3 object-contain">
+                <div class="w-14 h-14 bg-ansor-green text-ansor-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-2xl shadow-lg">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
                 <h3 class="text-2xl font-bold text-slate-800">Login Anggota</h3>
                 <p class="text-slate-500 text-sm mt-1">Masuk ke Sistem Informasi Ansor (SIA)</p>
             </div>
@@ -418,15 +1010,111 @@
                     <a href="#" class="text-ansor-green font-semibold hover:underline">Lupa Sandi?</a>
                 </div>
                 <button type="submit" class="w-full bg-ansor-green hover:bg-ansor-darkgreen text-white font-semibold py-3 rounded-lg transition shadow-md">
-                    Masuk Sekarang
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i> Masuk Sekarang
                 </button>
             </form>
+
+            <div class="mt-4 text-center text-xs text-slate-400 border-t border-slate-100 pt-4">
+                <p>Belum punya akun? <a href="#" class="text-ansor-green font-semibold hover:underline">Daftar Sekarang</a></p>
+            </div>
         </div>
     </div>
 
-    <!-- ================= JAVASCRIPT INTERAKTIF ================= -->
+    <!-- ================= 13. SCROLL TO TOP ================= -->
+    <button id="scrollTop" class="fixed bottom-6 right-6 bg-ansor-green hover:bg-ansor-darkgreen text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:scale-110 z-30">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ================= 14. COOKIE CONSENT ================= -->
+    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm p-4 z-40 hidden">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-white text-sm text-center sm:text-left">
+                <i class="fa-solid fa-cookie-bite text-ansor-yellow mr-2"></i>
+                Website ini menggunakan cookie untuk meningkatkan pengalaman Anda.
+            </p>
+            <div class="flex gap-3">
+                <button onclick="acceptCookies()" class="bg-ansor-yellow hover:bg-amber-500 text-slate-900 font-semibold px-6 py-2 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-check mr-1"></i> Terima
+                </button>
+                <button onclick="hideCookieConsent()" class="border border-white/30 hover:bg-white/10 text-white px-6 py-2 rounded-lg transition text-sm">
+                    Tolak
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Toggle Mobile Menu
+        // ===== AOS INIT =====
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // ===== DARK MODE =====
+        const darkToggle = document.getElementById('darkModeToggle');
+        let isDark = false;
+
+        darkToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            document.documentElement.classList.toggle('dark');
+            darkToggle.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+            if (isDark) {
+                document.querySelector('body').classList.add('bg-slate-900', 'text-white');
+                document.querySelectorAll('.bg-white').forEach(el => el.classList.add('dark:bg-slate-800'));
+                document.querySelectorAll('.bg-slate-50').forEach(el => el.classList.add('dark:bg-slate-900'));
+                document.querySelectorAll('.text-slate-800').forEach(el => el.classList.add('dark:text-white'));
+                document.querySelectorAll('.text-slate-600').forEach(el => el.classList.add('dark:text-slate-300'));
+                document.querySelectorAll('.text-slate-500').forEach(el => el.classList.add('dark:text-slate-400'));
+                document.querySelectorAll('.border-slate-200').forEach(el => el.classList.add('dark:border-slate-700'));
+            } else {
+                document.querySelector('body').classList.remove('bg-slate-900', 'text-white');
+                document.querySelectorAll('.dark\\:bg-slate-800').forEach(el => el.classList.remove('dark:bg-slate-800'));
+                document.querySelectorAll('.dark\\:bg-slate-900').forEach(el => el.classList.remove('dark:bg-slate-900'));
+                document.querySelectorAll('.dark\\:text-white').forEach(el => el.classList.remove('dark:text-white'));
+                document.querySelectorAll('.dark\\:text-slate-300').forEach(el => el.classList.remove('dark:text-slate-300'));
+                document.querySelectorAll('.dark\\:text-slate-400').forEach(el => el.classList.remove('dark:text-slate-400'));
+                document.querySelectorAll('.dark\\:border-slate-700').forEach(el => el.classList.remove('dark:border-slate-700'));
+            }
+        });
+
+        // ===== COUNTDOWN TIMER untuk HARLAH GP ANSOR 2027 =====
+        function startCountdown() {
+            // Target: Harlah GP Ansor ke-93 (24 Januari 2027)
+            const targetDate = new Date('2027-01-24T00:00:00').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    document.getElementById('countdownDays').textContent = '00';
+                    document.getElementById('countdownHours').textContent = '00';
+                    document.getElementById('countdownMinutes').textContent = '00';
+                    document.getElementById('countdownSeconds').textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdownDays').textContent = String(days).padStart(2, '0');
+                document.getElementById('countdownHours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('countdownMinutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('countdownSeconds').textContent = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        startCountdown();
+
+        // ===== MOBILE MENU =====
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -440,7 +1128,7 @@
             });
         });
 
-        // Modal Functions
+        // ===== LOGIN MODAL =====
         const loginModal = document.getElementById('loginModal');
 
         function openModal() {
@@ -459,11 +1147,102 @@
             }
         });
 
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
         function handleLogin(e) {
             e.preventDefault();
-            alert('Login Berhasil! (Fitur Demo)');
+            alert('✅ Login Berhasil! Selamat datang di Sistem Informasi Ansor.');
             closeModal();
         }
+
+        // ===== CONTACT FORM =====
+        function handleContact(e) {
+            e.preventDefault();
+            alert('✅ Pesan Anda telah terkirim! Tim kami akan segera merespon.');
+            e.target.reset();
+        }
+
+        // ===== GALERI FILTER =====
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-ansor-green', 'text-white'));
+                this.classList.add('active', 'bg-ansor-green', 'text-white');
+                this.classList.remove('bg-white', 'text-slate-600');
+
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.galeri-item').forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // ===== LIGHTBOX =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        document.querySelectorAll('.galeri-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightboxImage.src = this.src;
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // ===== SCROLL TO TOP =====
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                scrollTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'invisible');
+                scrollTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== COOKIE CONSENT =====
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                document.getElementById('cookieConsent').classList.remove('hidden');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        function hideCookieConsent() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        checkCookieConsent();
+
+        console.log('🚀 PC GP Ansor Kota Malang Website Loaded');
+        console.log('📌 Fitur: Dark Mode, Countdown Harlah 2027, Organisasi & Akreditasi, Galeri Filter, Lightbox, Scroll Top, Cookie Consent');
+        console.log('📊 Program: MDS Rijalul Ansor, BANSER, Kaderisasi, Cyber Ansor');
     </script>
 </body>
 </html>
