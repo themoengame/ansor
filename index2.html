@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC GP Ansor Kota Malang | Website Resmi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ansor-green: #005A2B;
+            --ansor-green-light: #007a3d;
+            --ansor-gold: #D4AF37;
+            --ansor-gold-light: #E8C84A;
+            --text-dark: #111111;
+            --text-light: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --shadow-sm: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.15);
+            --shadow-gold: 0 4px 15px rgba(212,175,55,0.4);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: #fff; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        .header {
+            background: var(--ansor-green);
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--ansor-gold), var(--ansor-gold-light));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: #fff; font-weight: bold;
+        }
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700; font-size: 18px;
+            color: #fff; line-height: 1.2;
+        }
+        .logo-text span { font-size: 13px; font-weight: 500; opacity: 0.9; }
+
+        .nav-desktop { display: flex; gap: 32px; align-items: center; }
+        .nav-desktop a {
+            color: #fff; text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500; font-size: 15px;
+            position: relative; padding: 4px 0;
+            transition: color 0.3s;
+        }
+        .nav-desktop a::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; width: 0; height: 2px;
+            background: var(--ansor-gold);
+            transition: width 0.3s;
+        }
+        .nav-desktop a:hover::after { width: 100%; }
+        .nav-desktop a:hover { color: var(--ansor-gold); }
+
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            background: #fff; min-width: 220px;
+            border-radius: 8px; margin-top: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-top: 3px solid var(--ansor-gold);
+            opacity: 0; visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            padding: 8px 0;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: block; padding: 10px 20px;
+            color: var(--text-dark); font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .dropdown-menu a:hover {
+            background: #f5f5f5; color: var(--ansor-green);
+        }
+        .dropdown-menu a:last-child { border-bottom: none; }
+
+        .header-actions {
+            display: flex; gap: 12px; align-items: center;
+        }
+        .btn {
+            padding: 10px 24px; border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600; font-size: 14px;
+            cursor: pointer; transition: all 0.3s;
+            text-decoration: none; display: inline-flex;
+            align-items: center; gap: 8px; border: none;
+        }
+        .btn-outline {
+            border: 2px solid #fff; color: #fff;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: #fff; color: var(--ansor-green);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--ansor-gold), #C5A028);
+            color: #fff;
+            box-shadow: var(--shadow-gold);
+        }
+        .btn-gold:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.5);
+        }
+        .btn-gold:active { transform: scale(0.98); }
+        .btn-green {
+            background: var(--ansor-green); color: #fff;
+        }
+        .btn-green:hover { background: var(--ansor-green-light); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none;
+            color: #fff; font-size: 24px; cursor: pointer;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .page-section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            position: relative; height: 600px;
+            background: linear-gradient(135deg, rgba(0,90,43,0.85), rgba(0,60,30,0.9));
+            display: flex; align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=600&fit=crop') center/cover;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 24px; width: 100%;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(212,175,55,0.2); border: 1px solid var(--ansor-gold);
+            color: var(--ansor-gold); padding: 8px 16px;
+            border-radius: 50px; font-size: 13px; font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 48px; font-weight: 700;
+            color: #fff; line-height: 1.2;
+            max-width: 700px; margin-bottom: 20px;
+        }
+        .hero h1 span { color: var(--ansor-gold); }
+        .hero p {
+            font-size: 18px; color: rgba(255,255,255,0.85);
+            max-width: 600px; margin-bottom: 32px;
+        }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .section-title {
+            text-align: center; margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 32px; font-weight: 700;
+            color: var(--ansor-green); margin-bottom: 12px;
+        }
+        .section-title .divider {
+            width: 80px; height: 3px;
+            background: var(--ansor-gold);
+            margin: 0 auto;
+        }
+        .section-title p {
+            color: #666; margin-top: 12px; font-size: 16px;
+        }
+        .section-title.left { text-align: left; }
+        .section-title.left .divider { margin: 0; }
+
+        .struktur-section {
+            padding: 80px 24px; background: var(--bg-light);
+        }
+        .struktur-container {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .struktur-grid {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 32px;
+        }
+        .ketua-card {
+            text-align: center;
+        }
+        .ketua-card .photo {
+            width: 200px; height: 200px;
+            border-radius: 50%; border: 5px solid var(--ansor-gold);
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px; overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .ketua-card .photo i { font-size: 80px; color: var(--ansor-green); }
+        .ketua-card h3 {
+            font-size: 24px; color: var(--ansor-green);
+            margin-bottom: 4px;
+        }
+        .ketua-card .jabatan {
+            color: var(--ansor-gold); font-weight: 600;
+            font-size: 14px; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .ketua-card .nama {
+            font-size: 18px; color: var(--text-dark);
+            font-weight: 600; margin-top: 4px;
+        }
+
+        .sekben-row {
+            display: flex; gap: 48px; justify-content: center;
+            flex-wrap: wrap;
+        }
+        .sekben-card {
+            text-align: center;
+        }
+        .sekben-card .photo {
+            width: 160px; height: 160px;
+            border-radius: 50%; border: 4px solid var(--ansor-green);
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 12px; overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .sekben-card .photo i { font-size: 60px; color: var(--ansor-green); }
+        .sekben-card h4 {
+            font-size: 18px; color: var(--ansor-green);
+            margin-bottom: 2px;
+        }
+        .sekben-card .jabatan {
+            color: var(--ansor-gold); font-weight: 600;
+            font-size: 12px; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .sekben-card .nama {
+            font-size: 16px; color: var(--text-dark);
+            font-weight: 600; margin-top: 2px;
+        }
+
+        .wakil-row {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap;
+        }
+        .wakil-card {
+            text-align: center; padding: 20px;
+            background: #fff; border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            min-width: 170px; transition: all 0.3s;
+            border-top: 3px solid var(--ansor-green);
+        }
+        .wakil-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-top-color: var(--ansor-gold);
+        }
+        .wakil-card .photo {
+            width: 90px; height: 90px;
+            border-radius: 50%; border: 3px solid var(--ansor-green);
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px; overflow: hidden;
+        }
+        .wakil-card .photo i { font-size: 36px; color: var(--ansor-green); }
+        .wakil-card h5 {
+            font-size: 14px; color: var(--ansor-green);
+            margin-bottom: 2px;
+        }
+        .wakil-card .jabatan {
+            color: #888; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .wakil-card .nama {
+            font-size: 13px; color: var(--text-dark);
+            font-weight: 600; margin-top: 4px;
+        }
+
+        .siapps-section {
+            padding: 80px 24px; background: #fff;
+        }
+        .siapps-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 64px; align-items: center;
+        }
+        .siapps-left h2 {
+            font-size: 36px; color: var(--ansor-green);
+            margin-bottom: 16px;
+        }
+        .siapps-left h2 span { color: var(--ansor-gold); }
+        .siapps-left p {
+            color: #555; margin-bottom: 24px; font-size: 16px;
+        }
+        .store-buttons {
+            display: flex; gap: 12px; margin-bottom: 32px;
+        }
+        .store-btn {
+            display: flex; align-items: center; gap: 10px;
+            background: #111; color: #fff;
+            padding: 10px 20px; border-radius: 8px;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .store-btn:hover { background: #333; transform: scale(1.02); }
+        .store-btn i { font-size: 24px; }
+        .store-btn div { text-align: left; }
+        .store-btn small { font-size: 10px; opacity: 0.7; display: block; }
+        .store-btn strong { font-size: 14px; font-weight: 600; }
+
+        .alur-steps {
+            display: flex; gap: 12px; flex-wrap: wrap;
+            align-items: center;
+        }
+        .step {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .step-num {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--ansor-gold), #C5A028);
+            color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 16px;
+            box-shadow: var(--shadow-gold);
+        }
+        .step-text { font-size: 12px; font-weight: 600; color: var(--text-dark); }
+        .step-arrow { color: var(--ansor-gold); font-size: 18px; }
+
+        .siapps-right {
+            display: flex; justify-content: center;
+        }
+        .phone-mockup {
+            width: 280px; height: 560px;
+            background: #111; border-radius: 40px;
+            padding: 12px; box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .phone-screen {
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, var(--ansor-green), #003d1d);
+            border-radius: 32px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            color: #fff; padding: 24px;
+        }
+        .phone-screen .app-icon {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, var(--ansor-gold), var(--ansor-gold-light));
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px; font-size: 36px;
+        }
+        .phone-screen h3 {
+            font-size: 20px; margin-bottom: 8px;
+        }
+        .phone-screen p { font-size: 12px; opacity: 0.8; text-align: center; }
+
+        .berita-section {
+            padding: 80px 24px; background: var(--bg-light);
+        }
+        .berita-container {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .berita-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .berita-card {
+            background: #fff; border-radius: 12px;
+            overflow: hidden; box-shadow: var(--shadow-sm);
+            transition: all 0.3s; cursor: pointer;
+        }
+        .berita-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        .berita-card .thumb {
+            height: 200px;
+            background: linear-gradient(135deg, #e0e0e0, #c0c0c0);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .berita-card .thumb i { font-size: 48px; color: #aaa; }
+        .berita-card .thumb .tag {
+            position: absolute; top: 12px; left: 12px;
+            background: var(--ansor-green); color: #fff;
+            padding: 4px 12px; border-radius: 4px;
+            font-size: 11px; font-weight: 600;
+        }
+        .berita-card .content { padding: 20px; }
+        .berita-card .content h3 {
+            font-size: 16px; color: var(--text-dark);
+            margin-bottom: 8px; line-height: 1.4;
+        }
+        .berita-card .content .meta {
+            display: flex; align-items: center; gap: 8px;
+            color: #888; font-size: 12px; margin-bottom: 12px;
+        }
+        .berita-card .content .baca {
+            color: var(--ansor-green); font-weight: 600;
+            font-size: 14px; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        .berita-card .content .baca:hover { color: var(--ansor-gold); }
+
+        .lihat-semua {
+            text-align: center; margin-top: 40px;
+        }
+        .lihat-semua a {
+            color: var(--ansor-green); font-weight: 600;
+            text-decoration: none; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .lihat-semua a:hover { color: var(--ansor-gold); }
+
+        .profil-hero {
+            background: linear-gradient(135deg, var(--ansor-green), #003d1d);
+            padding: 80px 24px; color: #fff;
+        }
+        .profil-hero-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 48px; align-items: center;
+        }
+        .profil-hero h1 {
+            font-size: 42px; margin-bottom: 16px;
+        }
+        .profil-hero h1 span { color: var(--ansor-gold); }
+        .profil-hero p { font-size: 16px; opacity: 0.9; line-height: 1.8; }
+        .profil-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 24px;
+            text-align: center; backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .stat-box .num {
+            font-size: 36px; font-weight: 700;
+            color: var(--ansor-gold);
+        }
+        .stat-box .label { font-size: 13px; opacity: 0.9; }
+
+        .profil-content {
+            padding: 80px 24px; max-width: 1200px;
+            margin: 0 auto;
+        }
+        .profil-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 48px; margin-bottom: 64px;
+        }
+        .profil-card {
+            background: #fff; border-radius: 16px;
+            padding: 40px; box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--ansor-gold);
+        }
+        .profil-card h3 {
+            font-size: 24px; color: var(--ansor-green);
+            margin-bottom: 16px; display: flex;
+            align-items: center; gap: 12px;
+        }
+        .profil-card h3 i { color: var(--ansor-gold); }
+        .profil-card p { color: #555; line-height: 1.8; }
+        .profil-card ul { margin-top: 16px; padding-left: 20px; }
+        .profil-card ul li {
+            margin-bottom: 10px; color: #555;
+            position: relative;
+        }
+        .profil-card ul li::marker { color: var(--ansor-gold); }
+
+        .timeline {
+            position: relative; padding-left: 30px;
+        }
+        .timeline::before {
+            content: ''; position: absolute;
+            left: 8px; top: 0; bottom: 0;
+            width: 2px; background: var(--ansor-gold);
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 32px;
+            padding-left: 24px;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute;
+            left: -26px; top: 4px;
+            width: 12px; height: 12px;
+            background: var(--ansor-gold);
+            border-radius: 50%; border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--ansor-gold);
+        }
+        .timeline-item .year {
+            font-size: 14px; color: var(--ansor-gold);
+            font-weight: 600; margin-bottom: 4px;
+        }
+        .timeline-item h4 {
+            font-size: 18px; color: var(--ansor-green);
+            margin-bottom: 6px;
+        }
+        .timeline-item p { color: #666; font-size: 14px; }
+
+        .banom-section {
+            padding: 80px 24px; background: var(--bg-light);
+        }
+        .banom-container {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .banom-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .banom-card {
+            background: #fff; border-radius: 16px;
+            padding: 40px 32px; text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s; border-top: 4px solid var(--ansor-green);
+        }
+        .banom-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-top-color: var(--ansor-gold);
+        }
+        .banom-card .icon {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, var(--ansor-green), var(--ansor-green-light));
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 36px; color: #fff;
+        }
+        .banom-card h3 {
+            font-size: 20px; color: var(--ansor-green);
+            margin-bottom: 12px;
+        }
+        .banom-card p {
+            color: #666; font-size: 14px; line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .banom-card .btn-detail {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--ansor-gold); font-weight: 600;
+            font-size: 14px;
+        }
+        .banom-card .btn-detail:hover { color: var(--ansor-green); }
+
+        .lembaga-section {
+            padding: 80px 24px; background: #fff;
+        }
+        .lembaga-container {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .lembaga-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .lembaga-card {
+            background: var(--bg-light); border-radius: 16px;
+            padding: 32px; transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .lembaga-card:hover {
+            border-color: var(--ansor-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+        .lembaga-card .icon {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--ansor-gold), var(--ansor-gold-light));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px; font-size: 24px; color: #fff;
+        }
+        .lembaga-card h3 {
+            font-size: 18px; color: var(--ansor-green);
+            margin-bottom: 10px;
+        }
+        .lembaga-card p {
+            color: #666; font-size: 14px; line-height: 1.7;
+        }
+        .lembaga-card ul {
+            margin-top: 12px; padding-left: 18px;
+        }
+        .lembaga-card ul li {
+            color: #666; font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .org-tree {
+            max-width: 1000px; margin: 0 auto;
+            padding: 40px 24px;
+        }
+        .org-level {
+            display: flex; justify-content: center;
+            gap: 24px; margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .org-node {
+            background: #fff; border-radius: 12px;
+            padding: 20px 28px; text-align: center;
+            box-shadow: var(--shadow-sm);
+            min-width: 200px;
+            border-top: 3px solid var(--ansor-gold);
+        }
+        .org-node .role {
+            font-size: 12px; color: var(--ansor-gold);
+            font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 6px;
+        }
+        .org-node .name {
+            font-size: 16px; font-weight: 600;
+            color: var(--ansor-green);
+        }
+        .org-connector {
+            display: flex; justify-content: center;
+            margin-bottom: 16px;
+        }
+        .org-connector .line {
+            width: 2px; height: 24px;
+            background: var(--ansor-gold);
+        }
+
+        .footer {
+            background: var(--ansor-green);
+            color: #fff; padding: 60px 24px 24px;
+        }
+        .footer-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand .logo-area { margin-bottom: 16px; }
+        .footer-brand p {
+            color: rgba(255,255,255,0.8); font-size: 14px;
+            line-height: 1.8; margin-bottom: 16px;
+        }
+        .footer-brand .address {
+            display: flex; align-items: flex-start; gap: 8px;
+            color: rgba(255,255,255,0.8); font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .footer-brand .address i { color: var(--ansor-gold); margin-top: 3px; }
+        .social-links {
+            display: flex; gap: 12px; margin-top: 16px;
+        }
+        .social-links a {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            color: #fff; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--ansor-gold); transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            font-size: 16px; margin-bottom: 20px;
+            color: var(--ansor-gold);
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.8); text-decoration: none;
+            font-size: 14px; transition: color 0.3s;
+            cursor: pointer;
+        }
+        .footer-col ul li a:hover { color: var(--ansor-gold); padding-left: 4px; }
+        .footer-bottom {
+            max-width: 1200px; margin: 40px auto 0;
+            padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center; color: rgba(255,255,255,0.6);
+            font-size: 13px;
+        }
+
+        .mobile-nav {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 999;
+        }
+        .mobile-nav.active { display: block; }
+        .mobile-nav-panel {
+            position: absolute; right: 0; top: 0; bottom: 0;
+            width: 300px; background: #fff;
+            padding: 80px 24px 24px;
+            transform: translateX(100%);
+            transition: transform 0.3s;
+            overflow-y: auto;
+        }
+        .mobile-nav.active .mobile-nav-panel { transform: translateX(0); }
+        .mobile-nav-panel a {
+            display: block; padding: 14px 0;
+            color: var(--text-dark); text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500; border-bottom: 1px solid #eee;
+        }
+        .mobile-nav-panel a:hover { color: var(--ansor-green); }
+        .mobile-nav-close {
+            position: absolute; top: 24px; right: 24px;
+            background: none; border: none; font-size: 24px;
+            cursor: pointer; color: var(--text-dark);
+        }
+
+        .breadcrumb {
+            background: var(--ansor-green);
+            padding: 16px 24px;
+        }
+        .breadcrumb-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; gap: 8px;
+            color: rgba(255,255,255,0.7); font-size: 14px;
+        }
+        .breadcrumb-inner a { color: #fff; }
+        .breadcrumb-inner a:hover { color: var(--ansor-gold); }
+        .breadcrumb-inner span { color: var(--ansor-gold); }
+
+        .kontak-section {
+            padding: 80px 24px; background: var(--bg-light);
+        }
+        .kontak-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .kontak-info h2 {
+            font-size: 32px; color: var(--ansor-green);
+            margin-bottom: 16px;
+        }
+        .kontak-info p { color: #666; margin-bottom: 32px; }
+        .kontak-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            margin-bottom: 24px;
+        }
+        .kontak-item .icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--ansor-gold), var(--ansor-gold-light));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 20px;
+        }
+        .kontak-item h4 { font-size: 16px; color: var(--ansor-green); margin-bottom: 4px; }
+        .kontak-item p { color: #666; font-size: 14px; margin: 0; }
+
+        .kontak-form {
+            background: #fff; border-radius: 16px;
+            padding: 40px; box-shadow: var(--shadow-sm);
+        }
+        .kontak-form h3 {
+            font-size: 20px; color: var(--ansor-green);
+            margin-bottom: 24px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: 14px;
+            color: var(--text-dark); margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%; padding: 12px 16px;
+            border: 2px solid #e0e0e0; border-radius: 8px;
+            font-family: 'Inter', sans-serif; font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none; border-color: var(--ansor-green);
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+
+        @media (max-width: 1023px) {
+            .berita-grid, .banom-grid, .lembaga-grid { grid-template-columns: repeat(2, 1fr); }
+            .siapps-container, .profil-hero-inner, .profil-grid, .kontak-container { grid-template-columns: 1fr; gap: 40px; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+            .profil-stats { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 767px) {
+            .nav-desktop { display: none; }
+            .mobile-menu-btn { display: block; }
+            .header-actions .btn-outline { display: none; }
+            .hero h1 { font-size: 32px; }
+            .hero { height: 500px; }
+            .berita-grid, .banom-grid, .lembaga-grid { grid-template-columns: 1fr; }
+            .sekben-row { gap: 24px; }
+            .wakil-row { gap: 12px; }
+            .alur-steps { flex-direction: column; gap: 12px; align-items: flex-start; }
+            .step-arrow { transform: rotate(90deg); }
+            .footer-container { grid-template-columns: 1fr; }
+            .section-title h2 { font-size: 24px; }
+            .profil-hero h1 { font-size: 28px; }
+            .profil-card { padding: 24px; }
+            .org-node { min-width: 160px; padding: 16px 20px; }
+            .org-node .name { font-size: 14px; }
+            .kontak-form { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo-area" onclick="navigateTo('home')" style="cursor:pointer;">
+                <div class="logo-icon">A</div>
+                <div class="logo-text">GP ANSOR<br><span>KOTA MALANG</span></div>
+            </div>
+            <nav class="nav-desktop">
+                <a href="#" onclick="navigateTo('home')">Beranda</a>
+                <div class="dropdown">
+                    <a href="#" onclick="return false;">Profil <i class="fas fa-chevron-down" style="font-size:10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="navigateTo('profil')">Sejarah & Visi Misi</a>
+                        <a href="#" onclick="navigateTo('struktur')">Struktur Organisasi</a>
+                    </div>
+                </div>
+                <a href="#" onclick="navigateTo('banom')">Banom</a>
+                <a href="#" onclick="navigateTo('lembaga')">Lembaga</a>
+                <a href="#" onclick="navigateTo('berita')">Berita</a>
+                <a href="#" onclick="navigateTo('kontak')">Kontak</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline" onclick="navigateTo('kontak')">Hubungi Kami</a>
+                <a href="#" class="btn btn-gold" onclick="navigateTo('siapps')">Daftar Anggota</a>
+                <button class="mobile-menu-btn" onclick="toggleMobileNav()"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav" onclick="closeMobileNav(event)">
+        <div class="mobile-nav-panel">
+            <button class="mobile-nav-close" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
+            <a href="#" onclick="navigateTo('home'); toggleMobileNav()">Beranda</a>
+            <a href="#" onclick="navigateTo('profil'); toggleMobileNav()">Profil</a>
+            <a href="#" onclick="navigateTo('struktur'); toggleMobileNav()">Struktur Organisasi</a>
+            <a href="#" onclick="navigateTo('banom'); toggleMobileNav()">Banom</a>
+            <a href="#" onclick="navigateTo('lembaga'); toggleMobileNav()">Lembaga</a>
+            <a href="#" onclick="navigateTo('berita'); toggleMobileNav()">Berita</a>
+            <a href="#" onclick="navigateTo('kontak'); toggleMobileNav()">Kontak</a>
+            <a href="#" onclick="navigateTo('siapps'); toggleMobileNav()" style="color: var(--ansor-gold);">Daftar Anggota</a>
+        </div>
+    </div>
+
+    <div id="page-home" class="page-section active">
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-shield-alt"></i> Masa Khidmat 2024 - 2028</div>
+                <h1>Transformasi Digital <span>Pemuda Ansor</span> Kota Malang, Mengawal Ulama Menjaga NKRI.</h1>
+                <p>Organisasi kepemudaan Islam terbesar di Kota Malang yang berlandaskan Aswaja An-Nahdliyah, siap menjadi garda terdepan dalam menjaga nilai-nilai kebangsaan dan keagamaan.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-gold" style="font-size:16px;padding:14px 32px;" onclick="navigateTo('siapps')"><i class="fas fa-user-plus"></i> Daftar Anggota</a>
+                    <a href="#" class="btn btn-outline" style="font-size:16px;padding:14px 32px;" onclick="navigateTo('profil')"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="struktur-section">
+            <div class="struktur-container">
+                <div class="section-title">
+                    <h2>Struktur Pengurus Harian</h2>
+                    <div class="divider"></div>
+                    <p>PC GP Ansor Kota Malang Masa Khidmat 2024 - 2028</p>
+                </div>
+                <div class="struktur-grid">
+                    <div class="ketua-card">
+                        <div class="photo"><i class="fas fa-user"></i></div>
+                        <h3>Ketua</h3>
+                        <div class="jabatan">Ketua PC GP Ansor</div>
+                        <div class="nama">Sugiyanto, S.Sos.</div>
+                    </div>
+                    <div class="sekben-row">
+                        <div class="sekben-card">
+                            <div class="photo"><i class="fas fa-user"></i></div>
+                            <h4>Sekretaris</h4>
+                            <div class="jabatan">Sekretaris PC</div>
+                            <div class="nama">David Rahmat Hakiki, S.Pd.</div>
+                        </div>
+                        <div class="sekben-card">
+                            <div class="photo"><i class="fas fa-user"></i></div>
+                            <h4>Bendahara</h4>
+                            <div class="jabatan">Bendahara PC</div>
+                            <div class="nama">Muhammad Anas Muttaqin</div>
+                        </div>
+                    </div>
+                    <div class="wakil-row">
+                        <div class="wakil-card"><div class="photo"><i class="fas fa-user"></i></div><h5>Wakil Ketua 1</h5><div class="jabatan">Bidang Kaderisasi</div><div class="nama">[Belum Terverifikasi]</div></div>
+                        <div class="wakil-card"><div class="photo"><i class="fas fa-user"></i></div><h5>Wakil Ketua 2</h5><div class="jabatan">Bidang Organisasi</div><div class="nama">[Belum Terverifikasi]</div></div>
+                        <div class="wakil-card"><div class="photo"><i class="fas fa-user"></i></div><h5>Wakil Ketua 3</h5><div class="jabatan">Bidang Lainnya</div><div class="nama">[Belum Terverifikasi]</div></div>
+                        <div class="wakil-card"><div class="photo"><i class="fas fa-user"></i></div><h5>Wakil Sekretaris</h5><div class="jabatan">Sekretaris</div><div class="nama">[Belum Terverifikasi]</div></div>
+                        <div class="wakil-card"><div class="photo"><i class="fas fa-user"></i></div><h5>Wakil Bendahara</h5><div class="jabatan">Bendahara</div><div class="nama">[Belum Terverifikasi]</div></div>
+                    </div>
+                    <div style="text-align:center;margin-top:16px;">
+                        <a href="#" class="btn btn-green" onclick="navigateTo('struktur')"><i class="fas fa-sitemap"></i> Lihat Struktur Lengkap</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="siapps-section" id="siapps">
+            <div class="siapps-container">
+                <div class="siapps-left">
+                    <h2>Pendaftaran Anggota <span>SIApps</span></h2>
+                    <p>Aplikasi SIApps memudahkan pendaftaran anggota GP Ansor secara digital. Download sekarang dan jadilah bagian dari gerakan pemuda terbesar di Kota Malang.</p>
+                    <div class="store-buttons">
+                        <a href="#" class="store-btn"><i class="fab fa-google-play"></i><div><small>GET IT ON</small><strong>Google Play</strong></div></a>
+                        <a href="#" class="store-btn"><i class="fab fa-apple"></i><div><small>Download on the</small><strong>App Store</strong></div></a>
+                    </div>
+                    <h3 style="font-size:18px;color:var(--ansor-green);margin-bottom:16px;font-family:'Poppins',sans-serif;">Alur Pendaftaran:</h3>
+                    <div class="alur-steps">
+                        <div class="step"><div class="step-num">1</div><span class="step-text">Download<br>Aplikasi</span></div>
+                        <i class="fas fa-chevron-right step-arrow"></i>
+                        <div class="step"><div class="step-num">2</div><span class="step-text">Registrasi<br>Akun</span></div>
+                        <i class="fas fa-chevron-right step-arrow"></i>
+                        <div class="step"><div class="step-num">3</div><span class="step-text">Isi Data<br>Diri</span></div>
+                        <i class="fas fa-chevron-right step-arrow"></i>
+                        <div class="step"><div class="step-num">4</div><span class="step-text">Verifikasi<br>Data</span></div>
+                        <i class="fas fa-chevron-right step-arrow"></i>
+                        <div class="step"><div class="step-num">5</div><span class="step-text">Aktif<br>Anggota</span></div>
+                    </div>
+                </div>
+                <div class="siapps-right">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-icon"><i class="fas fa-users"></i></div>
+                            <h3>SIApps</h3>
+                            <p>Sistem Informasi Anggota<br>GP Ansor Kota Malang</p>
+                            <div style="margin-top:24px;width:100%;padding:12px;background:rgba(255,255,255,0.1);border-radius:8px;text-align:center;font-size:13px;"><i class="fas fa-check-circle" style="color:var(--ansor-gold);margin-right:6px;"></i>Pendaftaran Online</div>
+                            <div style="margin-top:8px;width:100%;padding:12px;background:rgba(255,255,255,0.1);border-radius:8px;text-align:center;font-size:13px;"><i class="fas fa-id-card" style="color:var(--ansor-gold);margin-right:6px;"></i>Kartu Digital</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="berita-section" id="berita">
+            <div class="berita-container">
+                <div class="section-title">
+                    <h2>Berita Terbaru</h2>
+                    <div class="divider"></div>
+                    <p>Liputan kegiatan PC, PAC, dan Ranting GP Ansor Kota Malang</p>
+                </div>
+                <div class="berita-grid">
+                    <div class="berita-card">
+                        <div class="thumb"><i class="fas fa-newspaper"></i><span class="tag">Kegiatan PC</span></div>
+                        <div class="content">
+                            <div class="meta"><i class="far fa-calendar"></i> 29 September 2024</div>
+                            <h3>Pelantikan Pengurus PC GP Ansor Kota Malang Masa Khidmat 2024-2028</h3>
+                            <a href="#" class="baca">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="berita-card">
+                        <div class="thumb"><i class="fas fa-newspaper"></i><span class="tag">Pilkada</span></div>
+                        <div class="content">
+                            <div class="meta"><i class="far fa-calendar"></i> 29 September 2024</div>
+                            <h3>GP Ansor Kota Malang Tetap Netral dalam Pilkada Serentak 2024</h3>
+                            <a href="#" class="baca">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="berita-card">
+                        <div class="thumb"><i class="fas fa-newspaper"></i><span class="tag">Kaderisasi</span></div>
+                        <div class="content">
+                            <div class="meta"><i class="far fa-calendar"></i> 26 Mei 2024</div>
+                            <h3>Sugiyanto Terpilih Jadi Ketua GP Ansor Kota Malang Masa Khidmat 2024-2028</h3>
+                            <a href="#" class="baca">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lihat-semua"><a href="#">Lihat Semua Berita <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </section>
+    </div>
+    <div id="page-profil" class="page-section">
+        <div class="breadcrumb">
+            <div class="breadcrumb-inner">
+                <a href="#" onclick="navigateTo('home')">Beranda</a>
+                <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+                <span>Profil</span>
+            </div>
+        </div>
+        <section class="profil-hero">
+            <div class="profil-hero-inner">
+                <div>
+                    <div class="hero-badge" style="margin-bottom:16px;"><i class="fas fa-mosque"></i> Tentang Kami</div>
+                    <h1>GP Ansor <span>Kota Malang</span></h1>
+                    <p>Gerakan Pemuda Ansor (GP Ansor) adalah organisasi kepemudaan Islam yang berada di bawah naungan Nahdlatul Ulama (NU). PC GP Ansor Kota Malang merupakan salah satu cabang terdepan dalam gerakan pemuda Islam di Indonesia, berkomitmen untuk mengawal ulama dan menjaga NKRI.</p>
+                </div>
+                <div class="profil-stats">
+                    <div class="stat-box"><div class="num">57</div><div class="label">Kelurahan</div></div>
+                    <div class="stat-box"><div class="num">5</div><div class="label">Kecamatan</div></div>
+                    <div class="stat-box"><div class="num">2024</div><div class="label">Masa Khidmat</div></div>
+                </div>
+            </div>
+        </section>
+        <section class="profil-content">
+            <div class="section-title left"><h2>Visi & Misi</h2><div class="divider"></div></div>
+            <div class="profil-grid">
+                <div class="profil-card">
+                    <h3><i class="fas fa-eye"></i> Visi</h3>
+                    <p>Menjadikan GP Ansor Kota Malang sebagai organisasi kepemudaan Islam yang profesional, mandiri, dan berwibawa dalam mengawal ulama dan menjaga NKRI berlandaskan nilai-nilai Aswaja An-Nahdliyah.</p>
+                </div>
+                <div class="profil-card">
+                    <h3><i class="fas fa-bullseye"></i> Misi</h3>
+                    <ul>
+                        <li>Melakukan penataan organisasi melalui rantingisasi di 57 kelurahan Kota Malang</li>
+                        <li>Melaksanakan kaderisasi berkesinambungan bagi Ansor dan banomnya</li>
+                        <li>Membangun komunikasi dengan berbagai lembaga dan ormas sebagai mitra perjuangan</li>
+                        <li>Menguatkan jejaring organisasi untuk distribusi dan penempatan kader potensial</li>
+                        <li>Mengawal pesta demokrasi agar berjalan sehat dan kondusif</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-title left" style="margin-top:64px;"><h2>Sejarah GP Ansor Kota Malang</h2><div class="divider"></div></div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">24 April 1934</div>
+                    <h4>Pendirian GP Ansor</h4>
+                    <p>Gerakan Pemuda Ansor didirikan di Surabaya sebagai organisasi kepemudaan Islam di bawah naungan Nahdlatul Ulama.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">Era Orde Baru</div>
+                    <h4>GP Ansor di Kota Malang</h4>
+                    <p>GP Ansor Kota Malang terus berkembang menjadi salah satu organisasi kepemudaan terbesar di Kota Malang dengan basis massa yang kuat di kalangan santri dan muda-mudi NU.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">Reformasi</div>
+                    <h4>Transformasi Organisasi</h4>
+                    <p>GP Ansor Kota Malang melakukan transformasi organisasi menuju profesionalisme dan modernitas sambil tetap memegang teguh nilai-nilai Aswaja.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2024 - Sekarang</div>
+                    <h4>Era Transformasi Digital</h4>
+                    <p>Dengan kepemimpinan Sugiyanto, S.Sos., GP Ansor Kota Malang memasuki era transformasi digital dengan program rantingisasi dan penataan administrasi organisasi secara massif.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-struktur" class="page-section">
+        <div class="breadcrumb">
+            <div class="breadcrumb-inner">
+                <a href="#" onclick="navigateTo('home')">Beranda</a>
+                <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+                <a href="#" onclick="navigateTo('profil')">Profil</a>
+                <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+                <span>Struktur Organisasi</span>
+            </div>
+        </div>
+        <section class="struktur-section" style="padding-top:40px;">
+            <div class="struktur-container">
+                <div class="section-title">
+                    <h2>Struktur Organisasi Lengkap</h2>
+                    <div class="divider"></div>
+                    <p>PC GP Ansor Kota Malang Masa Khidmat 2024 - 2028</p>
+                </div>
+                <div class="org-tree">
+                    <div class="org-level">
+                        <div class="org-node"><div class="role">Ketua PC GP Ansor</div><div class="name">Sugiyanto, S.Sos.</div></div>
+                    </div>
+                    <div class="org-connector"><div class="line"></div></div>
+                    <div class="org-level">
+                        <div class="org-node"><div class="role">Sekretaris PC</div><div class="name">David Rahmat Hakiki, S.Pd.</div></div>
+                        <div class="org-node"><div class="role">Bendahara PC</div><div class="name">Muhammad Anas Muttaqin</div></div>
+                    </div>
+                    <div class="org-connector"><div class="line"></div></div>
+                    <div class="org-level">
+                        <div class="org-node"><div class="role">Wakil Ketua 1</div><div class="name">Bidang Kaderisasi</div></div>
+                        <div class="org-node"><div class="role">Wakil Ketua 2</div><div class="name">Bidang Organisasi</div></div>
+                        <div class="org-node"><div class="role">Wakil Ketua 3</div><div class="name">Bidang Lainnya</div></div>
+                    </div>
+                    <div class="org-connector"><div class="line"></div></div>
+                    <div class="org-level">
+                        <div class="org-node"><div class="role">Wakil Sekretaris</div><div class="name">[Belum Terverifikasi]</div></div>
+                        <div class="org-node"><div class="role">Wakil Bendahara</div><div class="name">[Belum Terverifikasi]</div></div>
+                    </div>
+                </div>
+                <div style="max-width:800px;margin:48px auto 0;background:#fff;border-radius:16px;padding:32px;box-shadow:var(--shadow-sm);">
+                    <h3 style="font-size:20px;color:var(--ansor-green);margin-bottom:16px;text-align:center;"><i class="fas fa-info-circle" style="color:var(--ansor-gold);"></i> Informasi Data Pengurus</h3>
+                    <p style="color:#666;text-align:center;line-height:1.8;">
+                        Data pengurus harian di atas telah <strong>terverifikasi</strong> dari sumber berita resmi pelantikan yang dilaksanakan pada <strong>29 September 2024</strong> di Hotel Gajah Mada, Kota Malang.<br><br>
+                        Nama Wakil Ketua, Wakil Sekretaris, dan Wakil Bendahara masih dalam proses verifikasi. Data akan diperbarui setelah mendapatkan SK resmi dari Pimpinan Pusat GP Ansor.<br>
+                        <em style="color:#999;font-size:13px;">Sumber: Malang Post, BacaMalang, Ansor Jatim (29/09/2024)</em>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-banom" class="page-section">
+        <div class="breadcrumb">
+            <div class="breadcrumb-inner">
+                <a href="#" onclick="navigateTo('home')">Beranda</a>
+                <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+                <span>Banom</span>
+            </div>
+        </div>
+        <section class="banom-section" style="padding-top:40px;">
+            <div class="banom-container">
+                <div class="section-title">
+                    <h2>Badan Otonom (Banom)</h2>
+                    <div class="divider"></div>
+                    <p>Lembaga otonom di bawah naungan PC GP Ansor Kota Malang</p>
+                </div>
+                <div class="banom-grid">
+                    <div class="banom-card">
+                        <div class="icon"><i class="fas fa-pray"></i></div>
+                        <h3>MDS Rijalul Ansor</h3>
+                        <p>Majelis Dzikir dan Sholawat Rijalul Ansor. Wadah kegiatan keagamaan, zikir, sholawat, dan pembinaan spiritual kader Ansor.</p>
+                        <a href="#" class="btn-detail">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="banom-card">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Banser</h3>
+                        <p>Barisan Serba Guna. Satuan pengamanan yang bertugas menjaga keamanan, ketertiban, dan memberikan pelayanan sosial kepada masyarakat.</p>
+                        <a href="#" class="btn-detail">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="banom-card">
+                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Badan Siber Ansor</h3>
+                        <p>Literasi digital, counter opini, dan keamanan siber. Bertugas memperkuat literasi digital kader dan melawan hoaks di ruang maya.</p>
+                        <a href="#" class="btn-detail">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-lembaga" class="page-section">
+        <div class="breadcrumb">
+            <div class="breadcrumb-inner">
+                <a href="#" onclick="navigateTo('home')">Beranda</a>
+                <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+                <span>Lembaga</span>
+            </div>
+        </div>
+        <section class="lembaga-section" style="padding-top:40px;">
+            <div class="lembaga-container">
+                <div class="section-title">
+                    <h2>Lembaga & Departemen</h2>
+                    <div class="divider"></div>
+                    <p>Lembaga pendukung operasional PC GP Ansor Kota Malang</p>
+                </div>
+                <div class="lembaga-grid">
+                    <div class="lembaga-card">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Kaderisasi</h3>
+                        <p>Program Pembentukan Kader Dasar (PKD), Pembentukan Kader Lanjutan (PKL), dan Pembentukan Kader Nasional (PKN).</p>
+                        <ul><li>Diklat Kader Dasar</li><li>Diklat Kader Lanjutan</li><li>Diklat Kader Nasional</li></ul>
+                    </div>
+                    <div class="lembaga-card">
+                        <div class="icon"><i class="fas fa-building"></i></div>
+                        <h3>Organisasi & Akreditasi</h3>
+                        <p>Penataan administrasi organisasi, status akreditasi PAC/Ranting, dan standar administrasi keorganisasian.</p>
+                        <ul><li>Akreditasi PAC/Ranting</li><li>Standar Administrasi</li><li>Rantingisasi</li></ul>
+                    </div>
+                    <div class="lembaga-card">
+                        <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                        <h3>Hukum</h3>
+                        <p>Advokasi, edukasi hukum, dan bantuan hukum masyarakat. Siap memberikan perlindungan hukum bagi kader dan masyarakat.</p>
+                        <ul><li>Bantuan Hukum</li><li>Edukasi Hukum</li><li>Advokasi Kader</li></ul>
+                    </div>
+                    <div class="lembaga-card">
+                        <div class="icon"><i class="fas fa-newspaper"></i></div>
+                        <h3>Media & Komunikasi</h3>
+                        <p>Publikasi berita kegiatan, artikel/opini kader, pengumuman resmi, dan rilis pers organisasi.</p>
+                        <ul><li>Berita Kegiatan</li><li>Artikel & Opini</li><li>Rilis Pers</li></ul>
+                    </div>
+                    <div class="lembaga-card">
+                        <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3>Sosial & Pemberdayaan</h3>
+                        <p>Program sosial, pemberdayaan masyarakat, dan bantuan untuk masyarakat yang membutuhkan.</p>
+                        <ul><li>Baksos & Safari Ramadhan</li><li>Pemberdayaan UMKM</li><li>Bantuan Bencana</li></ul>
+                    </div>
+                    <div class="lembaga-card">
+                        <div class="icon"><i class="fas fa-running"></i></div>
+                        <h3>Pemuda & Olahraga</h3>
+                        <p>Pengembangan potensi pemuda melalui kegiatan olahraga dan kepemudaan di Kota Malang.</p>
+                        <ul><li>Turnamen Olahraga</li><li>Pembinaan Atlet</li><li>Event Pemuda</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="page-kontak" class="page-section">
+        <div class="breadcrumb">
+            <div class="breadcrumb-inner">
+                <a href="#" onclick="navigateTo('home')">Beranda</a>
+                <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+                <span>Kontak</span>
+            </div>
+        </div>
+        <section class="kontak-section" style="padding-top:40px;">
+            <div class="kontak-container">
+                <div class="kontak-info">
+                    <h2>Hubungi Kami</h2>
+                    <p>Silakan hubungi kami untuk informasi lebih lanjut tentang GP Ansor Kota Malang.</p>
+                    <div class="kontak-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Alamat Sekretariat</h4>
+                            <p>Jl. [Alamat Lengkap]<br>Kota Malang, Jawa Timur</p>
+                        </div>
+                    </div>
+                    <div class="kontak-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>[Nomor Telepon]</p>
+                        </div>
+                    </div>
+                    <div class="kontak-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@ansorkotamalang.my.id</p>
+                        </div>
+                    </div>
+                    <div class="kontak-item">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>[Nomor WhatsApp Admin]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="kontak-form">
+                    <h3>Kirim Pesan</h3>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" placeholder="Masukkan nama lengkap Anda">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Masukkan email Anda">
+                    </div>
+                    <div class="form-group">
+                        <label>Subjek</label>
+                        <input type="text" placeholder="Subjek pesan">
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan</label>
+                        <textarea placeholder="Tulis pesan Anda di sini..."></textarea>
+                    </div>
+                    <button class="btn btn-gold" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-area">
+                    <div class="logo-icon">A</div>
+                    <div class="logo-text">GP ANSOR<br><span>KOTA MALANG</span></div>
+                </div>
+                <p>Gerakan Pemuda Ansor Kota Malang adalah organisasi kepemudaan Islam yang berlandaskan Aswaja An-Nahdliyah, siap menjadi garda terdepan dalam menjaga nilai-nilai kebangsaan dan keagamaan.</p>
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jl. [Alamat Lengkap]<br>Kota Malang, Jawa Timur</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Profil</h4>
+                <ul>
+                    <li><a href="#" onclick="navigateTo('profil')">Sejarah & Visi Misi</a></li>
+                    <li><a href="#" onclick="navigateTo('struktur')">Struktur Organisasi</a></li>
+                    <li><a href="#">Program Kerja</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Banom</h4>
+                <ul>
+                    <li><a href="#" onclick="navigateTo('banom')">MDS Rijalul Ansor</a></li>
+                    <li><a href="#" onclick="navigateTo('banom')">Banser</a></li>
+                    <li><a href="#" onclick="navigateTo('banom')">Badan Siber Ansor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#" onclick="navigateTo('siapps')">Pendaftaran Anggota</a></li>
+                    <li><a href="#" onclick="navigateTo('lembaga')">Kaderisasi</a></li>
+                    <li><a href="#" onclick="navigateTo('lembaga')">Advokasi Hukum</a></li>
+                    <li><a href="#" onclick="navigateTo('kontak')">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 PC GP Ansor Kota Malang. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById('page-' + page);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+            document.body.style.overflow = document.getElementById('mobileNav').classList.contains('active') ? 'hidden' : '';
+        }
+        function closeMobileNav(e) {
+            if (e.target === document.getElementById('mobileNav')) toggleMobileNav();
+        }
+    </script>
+</body>
+</html>
